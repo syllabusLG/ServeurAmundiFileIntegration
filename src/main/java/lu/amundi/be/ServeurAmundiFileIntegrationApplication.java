@@ -1,13 +1,20 @@
 package lu.amundi.be;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import lu.amundi.be.dao.RoleRepository;
+import lu.amundi.be.dao.UserRepository;
 import lu.amundi.be.entities.Individu;
+import lu.amundi.be.entities.Role;
 import lu.amundi.be.entities.Salarie;
+import lu.amundi.be.entities.User;
 import lu.amundi.be.service.ICrudService;
+import lu.amundi.be.utils.RoleEnum;
 
 @SpringBootApplication
 public class ServeurAmundiFileIntegrationApplication implements CommandLineRunner{
@@ -16,6 +23,10 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 	private ICrudService<Individu, String> service1;
 	@Autowired
 	private ICrudService<Salarie, String> service2;
+	@Autowired
+	RoleRepository roleRepository;
+	@Autowired
+	UserRepository userRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ServeurAmundiFileIntegrationApplication.class, args);
@@ -45,6 +56,24 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 		service2.getAll().forEach(s -> {
 			System.out.println("le salarié: "+ s.getEmployeeId()+" de nom "+s.getIndividu().getFirstName());
 		});
+		
+
+		
+		Role roleUser = new Role(RoleEnum.ROLE_USER);
+		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
+		
+		roleRepository.save(roleUser);
+		roleRepository.save(roleAdmin);
+		
+		
+		
+		User user = new User("user", "password1", true);
+		user.setRoles(Arrays.asList(roleUser));
+		userRepository.save(user);
+		
+		User admin = new User("admin", "password2", true);
+		admin.setRoles(Arrays.asList(roleUser, roleAdmin));
+		userRepository.save(admin);
 		
 	}
 }
