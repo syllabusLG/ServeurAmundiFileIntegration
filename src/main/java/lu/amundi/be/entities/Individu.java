@@ -190,5 +190,4 @@ public class Individu implements Serializable {
 		this.ibans = ibans;
 	}
 	
-	
 }

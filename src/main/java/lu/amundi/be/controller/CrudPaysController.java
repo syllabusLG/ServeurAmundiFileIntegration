@@ -1,21 +1,16 @@
 package lu.amundi.be.controller;
 
-import java.security.Principal;
-
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lu.amundi.be.entities.Pays;
 /**
  * 
  * @author AbousyllabaNdiaye
  *
  */
 @RestController
-public class UserController {
+@RequestMapping(value="/api/pays")
+public class CrudPaysController extends CrudControlller<Pays, Long> {
 
-	@RequestMapping("/api/user")
-	public Principal user(Principal user) {
-		return user;
-	}
 }

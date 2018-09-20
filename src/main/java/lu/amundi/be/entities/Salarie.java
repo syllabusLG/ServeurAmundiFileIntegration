@@ -51,7 +51,7 @@ public class Salarie implements Serializable {
 	@Size(min=2, max=15)
 	private String branch_CD;
 	@Size(min=1, max=6)
-	private String status; 
+	private String statut; 
 	@Size(min=1, max=2)
 	private String vip;
 	@Size(min=1, max=2)
@@ -146,10 +146,10 @@ public class Salarie implements Serializable {
 		this.branch_CD = branch_CD;
 	}
 	public String getStatus() {
-		return status;
+		return statut;
 	}
 	public void setStatus(String status) {
-		this.status = status;
+		this.statut = status;
 	}
 	public String getVip() {
 		return vip;
@@ -177,8 +177,6 @@ public class Salarie implements Serializable {
 	public void setIndividu(Individu individu) {
 		this.individu = individu;
 	}
-	
-	
 	
 	public Salarie() {
 		super();
@@ -208,12 +206,13 @@ public class Salarie implements Serializable {
 		this.lastHireDate = lastHireDate;
 		this.lastDepartDate = lastDepartDate;
 		this.branch_CD = branch_CD;
-		this.status = status;
+		this.statut = status;
 		this.vip = vip;
 		this.mySensitive = mySensitive;
 		this.dateEndSensitive = dateEndSensitive;
 		this.individu = individu;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -239,7 +238,4 @@ public class Salarie implements Serializable {
 		return true;
 	}
 	
-	
-	
-
 }

@@ -33,6 +33,8 @@ public class User implements Serializable {
 	@Column(unique=true)
 	private String username;
 	private String password;
+	private String firstName;
+	private String lastName;
 	private boolean enable;
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="USERS_ROLES",
@@ -59,6 +61,19 @@ public class User implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	public String getPassword() {
 		return password;
 	}
@@ -78,11 +93,24 @@ public class User implements Serializable {
 	}
 	
 	
-	public User(String username, String password, boolean enable) {
+	
+	public User(String username, String password, String firstName, String lastName, boolean enable) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.enable = enable;
+	}
+	public User(String username, String password, String firstName, String lastName, boolean enable,
+			Collection<Role> roles) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.enable = enable;
+		this.roles = roles;
 	}
 	@Override
 	public int hashCode() {
