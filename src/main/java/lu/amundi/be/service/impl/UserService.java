@@ -42,4 +42,10 @@ public class UserService implements ICrudService<User, Long>{
 		userRepository.delete(user);
 	}
 
+	@Override
+	public void saveAll(Iterable<User> iterable) {
+		// TODO Auto-generated method stub
+		userRepository.saveAll(iterable);
+	}
+
 }

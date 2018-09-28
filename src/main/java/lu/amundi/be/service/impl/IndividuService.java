@@ -47,4 +47,10 @@ public class IndividuService implements ICrudService<Individu, String> {
 		individuRepository.delete(individu);
 	}
 
+	@Override
+	public void saveAll(Iterable<Individu> iterable) {
+		// TODO Auto-generated method stub
+		individuRepository.saveAll(iterable);
+	}
+
 }

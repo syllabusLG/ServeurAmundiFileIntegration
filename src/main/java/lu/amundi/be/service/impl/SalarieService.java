@@ -42,5 +42,11 @@ public class SalarieService implements ICrudService<Salarie, String> {
 		salarieRepository.delete(salarie);
 	}
 
+	@Override
+	public void saveAll(Iterable<Salarie> iterable) {
+		// TODO Auto-generated method stub
+		salarieRepository.saveAll(iterable);
+	}
+
 
 }

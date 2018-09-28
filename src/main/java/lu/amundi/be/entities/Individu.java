@@ -7,6 +7,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * 
@@ -27,9 +29,11 @@ public class Individu implements Serializable {
 	private String lastName;
 	private String useName;
 	private String firstName;
+	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 	private String birthPlace;
 	private String birthCountry;
+	private String birthCountryLib;
 	private String nationality;
 	@OneToMany(mappedBy="individu")
 	private Collection<Compte> comptes;
@@ -87,6 +91,13 @@ public class Individu implements Serializable {
 	}
 	public void setBirthCountry(String birthCountry) {
 		this.birthCountry = birthCountry;
+	}
+	
+	public String getBirthCountryLib() {
+		return birthCountryLib;
+	}
+	public void setBirthCountryLib(String birthCountryLib) {
+		this.birthCountryLib = birthCountryLib;
 	}
 	public String getNationality() {
 		return nationality;
@@ -147,7 +158,7 @@ public class Individu implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	public Individu(String nui, int civility, String lastName, String useName, String firstName, Date birthDate,
-			String birthPlace, String birthCountry, String nationality) {
+			String birthPlace, String birthCountry, String birthCountryLib, String nationality) {
 		super();
 		this.nui = nui;
 		this.civility = civility;
@@ -157,10 +168,11 @@ public class Individu implements Serializable {
 		this.birthDate = birthDate;
 		this.birthPlace = birthPlace;
 		this.birthCountry = birthCountry;
+		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 	}
 	public Individu(int civility, String lastName, String useName, String firstName, Date birthDate, String birthPlace,
-			String birthCountry, String nationality) {
+			String birthCountry, String birthCountryLib, String nationality) {
 		super();
 		this.civility = civility;
 		this.lastName = lastName;
@@ -169,10 +181,11 @@ public class Individu implements Serializable {
 		this.birthDate = birthDate;
 		this.birthPlace = birthPlace;
 		this.birthCountry = birthCountry;
+		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 	}
 	public Individu(String nui, int civility, String lastName, String useName, String firstName, Date birthDate,
-			String birthPlace, String birthCountry, String nationality, Collection<Compte> comptes,
+			String birthPlace, String birthCountry, String birthCountryLib, String nationality, Collection<Compte> comptes,
 			Collection<Adresse> adresses, Collection<Contact> contacts, Collection<Iban> ibans) {
 		super();
 		this.nui = nui;
@@ -183,6 +196,7 @@ public class Individu implements Serializable {
 		this.birthDate = birthDate;
 		this.birthPlace = birthPlace;
 		this.birthCountry = birthCountry;
+		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 		this.comptes = comptes;
 		this.adresses = adresses;

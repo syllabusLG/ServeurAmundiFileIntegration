@@ -8,5 +8,5 @@ public interface ICrudService<T, ID> {
 	public void add(T entity);
 	public void update(T entity);
 	public void delete(ID id);
-
+	public void saveAll(Iterable<T> iterable);
 }

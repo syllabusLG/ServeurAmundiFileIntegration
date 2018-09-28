@@ -43,4 +43,10 @@ public class PaysService implements ICrudService<Pays, Long> {
 		paysRepository.delete(pays);
 	}
 
+	@Override
+	public void saveAll(Iterable<Pays> iterable) {
+		// TODO Auto-generated method stub
+		paysRepository.saveAll(iterable);
+	}
+
 }

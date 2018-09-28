@@ -30,7 +30,7 @@ public class Adresse implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int numberRue;
+	private int numberStreet;
 	private String street;
 	private String additionalAdress_1;
 	private String additionalAdress_2;
@@ -50,11 +50,11 @@ public class Adresse implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getNumberRue() {
-		return numberRue;
+	public int getNumberStreet() {
+		return numberStreet;
 	}
-	public void setNumberRue(int numberRue) {
-		this.numberRue = numberRue;
+	public void setNumberRue(int numberStreet) {
+		this.numberStreet = numberStreet;
 	}
 	public String getStreet() {
 		return street;
@@ -118,12 +118,11 @@ public class Adresse implements Serializable {
 		this.individu = individu;
 	}
 	
-	public Adresse(Long id, int numberRue, String street, String additionalAdress_1, String additionalAdress_2,
+	public Adresse(int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
 			String additionalAdress_3, String codePostal, String city, String country, String country_lib,
 			String resident, Individu individu) {
 		super();
-		this.id = id;
-		this.numberRue = numberRue;
+		this.numberStreet = numberStreet;
 		this.street = street;
 		this.additionalAdress_1 = additionalAdress_1;
 		this.additionalAdress_2 = additionalAdress_2;
@@ -135,11 +134,11 @@ public class Adresse implements Serializable {
 		this.resident = resident;
 		this.individu = individu;
 	}
-	public Adresse(int numberRue, String street, String additionalAdress_1, String additionalAdress_2,
+	public Adresse(int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
 			String additionalAdress_3, String codePostal, String city, String country, String country_lib,
 			String resident) {
 		super();
-		this.numberRue = numberRue;
+		this.numberStreet = numberStreet;
 		this.street = street;
 		this.additionalAdress_1 = additionalAdress_1;
 		this.additionalAdress_2 = additionalAdress_2;
