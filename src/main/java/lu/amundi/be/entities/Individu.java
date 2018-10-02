@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * 
  * @author AbousyllabaNdiaye
@@ -30,6 +32,7 @@ public class Individu implements Serializable {
 	private String useName;
 	private String firstName;
 	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date birthDate;
 	private String birthPlace;
 	private String birthCountry;
@@ -80,9 +83,12 @@ public class Individu implements Serializable {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+	
 	public String getBirthPlace() {
 		return birthPlace;
 	}
+	
+	
 	public void setBirthPlace(String birthPlace) {
 		this.birthPlace = birthPlace;
 	}
