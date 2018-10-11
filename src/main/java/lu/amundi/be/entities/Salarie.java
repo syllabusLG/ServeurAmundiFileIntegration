@@ -8,8 +8,12 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 /**
  * 
  * @author AbousyllabaNdiaye
@@ -25,37 +29,46 @@ public class Salarie implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@NotEmpty
-	@Size(min=2, max=20)
+	@Size(min=0, max=20)
 	private String employeeId;
-	@Size(min=1, max=2)
+	@Size(min=0, max=2)
 	private String employeeStatus;
-	@Size(min=2, max=10)
+	@Size(min=0, max=10)
 	private String company_CD;
-	@Size(min=2, max=50)
+	@Size(min=0, max=50)
 	private String spc;
-	@Size(min=2, max=50)
+
 	private String level_1;
-	@Size(min=2, max=50)
-	private String level_2;
-	@Size(min=2, max=50)
-	private String level_3;
-	@Size(min=2, max=50)
-	private String level_4;
-	@Size(min=2, max=50)
-	private String level_5;
 	
+	private String level_2;
+
+	private String level_3;
+
+	private String level_4;
+
+	private String level_5;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date hireDate;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date departDate;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date lastHireDate;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date lastDepartDate;
-	@Size(min=2, max=15)
+	@Size(min=0, max=15)
 	private String branch_CD;
-	@Size(min=1, max=6)
+	@Size(min=0, max=6)
 	private String statut; 
-	@Size(min=1, max=2)
+	@Size(min=0, max=2)
 	private String vip;
-	@Size(min=1, max=2)
+	@Size(min=0, max=2)
 	private String mySensitive;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dateEndSensitive;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_IND")

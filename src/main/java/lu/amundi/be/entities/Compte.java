@@ -2,14 +2,8 @@ package lu.amundi.be.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 /**
@@ -19,42 +13,37 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="MODE", discriminatorType = DiscriminatorType.STRING, length=4)
-public abstract class Compte implements Serializable {
+public  class Compte implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long numCompte;
 	private String type;
-	private int numCompte;
 	private String libCompte;
 	private String ouvert;
 	private String lettrage;
+	private int idCptPc;
+	private String statutAff;
+	private String typage;
+	private String typeCompte;
 	@ManyToOne
 	@JoinColumn(name="ID_IND")
 	private Individu individu;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getNumCompte() {
+	public Long getNumCompte() {
 		return numCompte;
 	}
-	public void setNumCompte(int numCompte) {
+	public void setNumCompte(Long numCompte) {
 		this.numCompte = numCompte;
 	}
 	public String getLibCompte() {
@@ -76,6 +65,33 @@ public abstract class Compte implements Serializable {
 		this.lettrage = lettrage;
 	}
 	
+	public int getIdCptPc() {
+		return idCptPc;
+	}
+
+	public void setIdCptPc(int idCptPc) {
+		this.idCptPc = idCptPc;
+	}
+	
+	public String getStatutAff() {
+		return statutAff;
+	}
+	public void setStatutAff(String statutAff) {
+		this.statutAff = statutAff;
+	}
+	public String getTypage() {
+		return typage;
+	}
+	public void setTypage(String typage) {
+		this.typage = typage;
+	}
+	
+	public String getTypeCompte() {
+		return typeCompte;
+	}
+	public void setTypeCompte(String typeCompte) {
+		this.typeCompte = typeCompte;
+	}
 	public Individu getIndividu() {
 		return individu;
 	}
@@ -86,21 +102,31 @@ public abstract class Compte implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Compte(String type, int numCompte, String libCompte, String ouvert, String lettrage) {
+	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+			String statutAff, String typage, String typeCompte) {
 		super();
-		this.type = type;
 		this.numCompte = numCompte;
+		this.type = type;
 		this.libCompte = libCompte;
 		this.ouvert = ouvert;
 		this.lettrage = lettrage;
+		this.idCptPc = idCptPc;
+		this.statutAff = statutAff;
+		this.typage = typage;
+		this.typeCompte = typeCompte;
 	}
-	public Compte(String type, int numCompte, String libCompte, String ouvert, String lettrage, Individu individu) {
+	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+			String statutAff, String typage, String typeCompte, Individu individu) {
 		super();
-		this.type = type;
 		this.numCompte = numCompte;
+		this.type = type;
 		this.libCompte = libCompte;
 		this.ouvert = ouvert;
 		this.lettrage = lettrage;
+		this.idCptPc = idCptPc;
+		this.statutAff = statutAff;
+		this.typage = typage;
+		this.typeCompte = typeCompte;
 		this.individu = individu;
 	}
 	

@@ -1,21 +1,15 @@
 package lu.amundi.be.entities;
 
 import java.io.Serializable;
-
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
 /**
  * 
  * @author AbousyllabaNdiaye
  *
  */
-@Entity
-@DiscriminatorValue("CASH")
+/*@Entity
+@DiscriminatorValue("CASH")*/
 public class CashSal extends Compte implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private int idCptPc;
@@ -28,7 +22,7 @@ public class CashSal extends Compte implements Serializable {
 		this.idCptPc = idCptPc;
 	}
 
-	public CashSal(int idCptPc) {
+	/*public CashSal(int idCptPc) {
 		super();
 		this.idCptPc = idCptPc;
 	}
@@ -37,11 +31,11 @@ public class CashSal extends Compte implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public CashSal(String type, int numCompte, String libCompte, String ouvert, String lettrage) {
-		super(type, numCompte, libCompte, ouvert, lettrage);
+*/
+	/*public CashSal(Long numCompte, String type, String libCompte, String ouvert, String lettrage) {
+		super(numCompte, type, libCompte, ouvert, lettrage);
 		// TODO Auto-generated constructor stub
-	}
+	}*/
 	
 
 }

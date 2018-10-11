@@ -1,6 +1,7 @@
 package lu.amundi.be.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +43,11 @@ public class CrudControlller<T, ID> {
 	public ResponseEntity<List<T>> addAll(@RequestBody List<T> list){
 		service.saveAll(list);
 		return new ResponseEntity<>(list, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/{id}")
+	public Optional<T> getOne(@PathVariable ID id) {
+		return service.findOne(id);
 	}
 
 }

@@ -18,8 +18,6 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="TYPE", discriminatorType = DiscriminatorType.STRING, length=4)
 public class Adresse implements Serializable {
 
 	/**
@@ -28,8 +26,7 @@ public class Adresse implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	private int numberStreet;
 	private String street;
 	private String additionalAdress_1;
@@ -40,14 +37,16 @@ public class Adresse implements Serializable {
 	private String country;
 	private String country_lib;
 	private String resident;
+	private String nif;
+	private String typeAdresse;
 	@ManyToOne
 	@JoinColumn(name="ID_IND")
 	private Individu individu;
 	
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public int getNumberStreet() {
@@ -111,6 +110,21 @@ public class Adresse implements Serializable {
 		this.resident = resident;
 	}
 	
+	public String getNif() {
+		return nif;
+	}
+	public void setNif(String nif) {
+		this.nif = nif;
+	}
+	public String getTypeAdresse() {
+		return typeAdresse;
+	}
+	public void setTypeAdresse(String typeAdresse) {
+		this.typeAdresse = typeAdresse;
+	}
+	public void setNumberStreet(int numberStreet) {
+		this.numberStreet = numberStreet;
+	}
 	public Individu getIndividu() {
 		return individu;
 	}
@@ -118,10 +132,11 @@ public class Adresse implements Serializable {
 		this.individu = individu;
 	}
 	
-	public Adresse(int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
+	public Adresse(String id, int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
 			String additionalAdress_3, String codePostal, String city, String country, String country_lib,
-			String resident, Individu individu) {
+			String resident, String nif, String typeAdresse) {
 		super();
+		this.id = id;
 		this.numberStreet = numberStreet;
 		this.street = street;
 		this.additionalAdress_1 = additionalAdress_1;
@@ -132,12 +147,15 @@ public class Adresse implements Serializable {
 		this.country = country;
 		this.country_lib = country_lib;
 		this.resident = resident;
-		this.individu = individu;
+		this.nif = nif;
+		this.typeAdresse = typeAdresse;
 	}
-	public Adresse(int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
+	
+	public Adresse(String id, int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
 			String additionalAdress_3, String codePostal, String city, String country, String country_lib,
-			String resident) {
+			String resident, String nif, String typeAdresse, Individu individu) {
 		super();
+		this.id = id;
 		this.numberStreet = numberStreet;
 		this.street = street;
 		this.additionalAdress_1 = additionalAdress_1;
@@ -148,6 +166,9 @@ public class Adresse implements Serializable {
 		this.country = country;
 		this.country_lib = country_lib;
 		this.resident = resident;
+		this.nif = nif;
+		this.typeAdresse = typeAdresse;
+		this.individu = individu;
 	}
 	public Adresse() {
 		super();
@@ -178,6 +199,4 @@ public class Adresse implements Serializable {
 	}
 	
 	
-	
-
 }

@@ -1,6 +1,7 @@
 package lu.amundi.be.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -46,6 +47,12 @@ public class SalarieService implements ICrudService<Salarie, String> {
 	public void saveAll(Iterable<Salarie> iterable) {
 		// TODO Auto-generated method stub
 		salarieRepository.saveAll(iterable);
+	}
+
+	@Override
+	public Optional<Salarie> findOne(String id) {
+		// TODO Auto-generated method stub
+		return salarieRepository.findById(id);
 	}
 
 

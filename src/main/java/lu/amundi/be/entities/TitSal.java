@@ -2,16 +2,13 @@ package lu.amundi.be.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-
 /**
  * 
  * @author AbousyllabaNdiaye
  *
  */
-@Entity
-@DiscriminatorValue("TIT")
+/*@Entity
+@DiscriminatorValue("TIT")*/
 public class TitSal extends Compte implements Serializable {
 
 	/**
@@ -43,10 +40,10 @@ public class TitSal extends Compte implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TitSal(String type, int numCompte, String libCompte, String ouvert, String lettrage) {
-		super(type, numCompte, libCompte, ouvert, lettrage);
+	/*public TitSal(Long numCompte, String type, String libCompte, String ouvert, String lettrage) {
+		super(numCompte, type, libCompte, ouvert, lettrage);
 		// TODO Auto-generated constructor stub
-	}
+	}*/
 	
 	
 

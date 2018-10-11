@@ -5,12 +5,14 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 
@@ -38,13 +40,17 @@ public class Individu implements Serializable {
 	private String birthCountry;
 	private String birthCountryLib;
 	private String nationality;
-	@OneToMany(mappedBy="individu")
+	@JsonIgnore
+	@OneToMany(mappedBy="individu", fetch = FetchType.LAZY)
 	private Collection<Compte> comptes;
-	@OneToMany(mappedBy="individu")
+	@JsonIgnore
+	@OneToMany(mappedBy="individu", fetch = FetchType.LAZY)
 	private Collection<Adresse> adresses;
-	@OneToMany(mappedBy="individu")
+	@JsonIgnore
+	@OneToMany(mappedBy="individu", fetch = FetchType.LAZY)
 	private Collection<Contact> contacts;
-	@OneToMany(mappedBy="individu")
+	@JsonIgnore
+	@OneToMany(mappedBy="individu", fetch = FetchType.LAZY)
 	private Collection<Iban> ibans;
 	
 	public String getNui() {

@@ -22,8 +22,7 @@ public class Contact implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idContact;
+	private String idContact;
 	private String homePhone;
 	private String businessPhone;
 	private String personalEmail;
@@ -33,10 +32,10 @@ public class Contact implements Serializable {
 	@JoinColumn(name="ID_IND")
 	private Individu individu;
 	
-	public Long getIdContact() {
+	public String getIdContact() {
 		return idContact;
 	}
-	public void setIdContact(Long idContact) {
+	public void setIdContact(String idContact) {
 		this.idContact = idContact;
 	}
 	public String getHomePhone() {
@@ -80,9 +79,10 @@ public class Contact implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Contact(String homePhone, String businessPhone, String personalEmail, String businessEmail,
+	public Contact(String idContact, String homePhone, String businessPhone, String personalEmail, String businessEmail,
 			String cellPhone) {
 		super();
+		this.idContact = idContact;
 		this.homePhone = homePhone;
 		this.businessPhone = businessPhone;
 		this.personalEmail = personalEmail;
@@ -90,9 +90,10 @@ public class Contact implements Serializable {
 		this.cellPhone = cellPhone;
 	}
 	
-	public Contact(String homePhone, String businessPhone, String personalEmail, String businessEmail, String cellPhone,
+	public Contact(String idContact, String homePhone, String businessPhone, String personalEmail, String businessEmail, String cellPhone,
 			Individu individu) {
 		super();
+		this.idContact = idContact;
 		this.homePhone = homePhone;
 		this.businessPhone = businessPhone;
 		this.personalEmail = personalEmail;

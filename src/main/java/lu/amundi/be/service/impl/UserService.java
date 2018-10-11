@@ -1,6 +1,7 @@
 package lu.amundi.be.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -46,6 +47,12 @@ public class UserService implements ICrudService<User, Long>{
 	public void saveAll(Iterable<User> iterable) {
 		// TODO Auto-generated method stub
 		userRepository.saveAll(iterable);
+	}
+
+	@Override
+	public Optional<User> findOne(Long id) {
+		// TODO Auto-generated method stub
+		return userRepository.findById(id);
 	}
 
 }
