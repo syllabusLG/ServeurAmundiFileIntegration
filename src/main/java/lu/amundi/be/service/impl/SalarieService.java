@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lu.amundi.be.dao.SalarieRepository;
@@ -53,6 +55,12 @@ public class SalarieService implements ICrudService<Salarie, String> {
 	public Optional<Salarie> findOne(String id) {
 		// TODO Auto-generated method stub
 		return salarieRepository.findById(id);
+	}
+
+	@Override
+	public Page<Salarie> search(String mc, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

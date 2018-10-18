@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lu.amundi.be.dao.UserRepository;
@@ -53,6 +55,12 @@ public class UserService implements ICrudService<User, Long>{
 	public Optional<User> findOne(Long id) {
 		// TODO Auto-generated method stub
 		return userRepository.findById(id);
+	}
+
+	@Override
+	public Page<User> search(String mc, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

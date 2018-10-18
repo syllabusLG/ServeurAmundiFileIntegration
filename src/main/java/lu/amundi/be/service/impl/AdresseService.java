@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lu.amundi.be.dao.AdressRepository;
@@ -54,6 +56,12 @@ public class AdresseService implements ICrudService<Adresse, String> {
 	public Optional<Adresse> findOne(String id) {
 		// TODO Auto-generated method stub
 		return adressRepository.findById(id);
+	}
+
+	@Override
+	public Page<Adresse> search(String mc, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return adressRepository.chercher(mc, pageable);
 	}
 
 }
