@@ -1,0 +1,12 @@
+diff a/src/main/java/lu/amundi/be/controller/CrudControlller.java b/src/main/java/lu/amundi/be/controller/CrudControlller.java	(rejected hunks)
+@@ -38,5 +38,10 @@
+ 	public void delete(@PathVariable ID id) {
+ 		service.delete(id);
+ 	}
++	@PostMapping("/all")
++	public ResponseEntity<List<T>> addAll(@RequestBody List<T> list){
++		service.saveAll(list);
++		return new ResponseEntity<>(list, HttpStatus.ACCEPTED);
++	}
+ 
+ }

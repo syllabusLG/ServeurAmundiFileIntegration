@@ -60,7 +60,7 @@ public class SalarieService implements ICrudService<Salarie, String> {
 	@Override
 	public Page<Salarie> search(String mc, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return salarieRepository.chercher(mc, pageable);
 	}
 
 
