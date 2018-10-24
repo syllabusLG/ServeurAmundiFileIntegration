@@ -22,25 +22,21 @@ public class AdresseService implements ICrudService<Adresse, String> {
 	
 	@Override
 	public List<Adresse> getAll() {
-		// TODO Auto-generated method stub
 		return adressRepository.findAll();
 	}
 
 	@Override
 	public void add(Adresse adresse) {
-		// TODO Auto-generated method stub
 		adressRepository.save(adresse);
 	}
 
 	@Override
 	public void update(Adresse adresse) {
-		// TODO Auto-generated method stub
 		adressRepository.save(adresse);
 	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
 		Adresse adresse = new Adresse();
 		adresse.setId(id);
 		adressRepository.delete(adresse);
@@ -48,19 +44,16 @@ public class AdresseService implements ICrudService<Adresse, String> {
 
 	@Override
 	public void saveAll(Iterable<Adresse> iterable) {
-		// TODO Auto-generated method stub
 		adressRepository.saveAll(iterable);
 	}
 
 	@Override
 	public Optional<Adresse> findOne(String id) {
-		// TODO Auto-generated method stub
 		return adressRepository.findById(id);
 	}
 
 	@Override
 	public Page<Adresse> search(String mc, Pageable pageable) {
-		// TODO Auto-generated method stub
 		return adressRepository.chercher(mc, pageable);
 	}
 
