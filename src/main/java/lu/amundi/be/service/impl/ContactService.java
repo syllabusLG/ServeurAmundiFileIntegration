@@ -62,7 +62,7 @@ public class ContactService implements ICrudService<Contact, String>{
 	@Override
 	public Page<Contact> search(String mc, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return contactRepository.chercher(mc, pageable);
 	}
 
 }

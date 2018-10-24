@@ -65,7 +65,7 @@ public class IndividuService implements ICrudService<Individu, String> {
 	@Override
 	public Page<Individu> search(String mc, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return individuRepository.chercher(mc, pageable);
 	}
 
 }

@@ -60,7 +60,7 @@ public class UserService implements ICrudService<User, Long>{
 	@Override
 	public Page<User> search(String mc, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return userRepository.chercher(mc, pageable);
 	}
 
 }

@@ -61,7 +61,7 @@ public class IbanService implements ICrudService<Iban, String>{
 	@Override
 	public Page<Iban> search(String mc, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return ibanRepository.chercher(mc, pageable);
 	}
 
 }

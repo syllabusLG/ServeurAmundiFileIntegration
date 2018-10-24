@@ -59,10 +59,9 @@ public class CompteService implements ICrudService<Compte, Long>{
 		return compteRepository.findById(id);
 	}
 
-	@Override
 	public Page<Compte> search(String mc, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return compteRepository.chercher(mc, pageable);
 	}
 
 }
