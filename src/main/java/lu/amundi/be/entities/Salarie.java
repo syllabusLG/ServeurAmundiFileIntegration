@@ -158,11 +158,12 @@ public class Salarie implements Serializable {
 	public void setBranch_CD(String branch_CD) {
 		this.branch_CD = branch_CD;
 	}
-	public String getStatus() {
+
+	public String getStatut() {
 		return statut;
 	}
-	public void setStatus(String status) {
-		this.statut = status;
+	public void setStatut(String statut) {
+		this.statut = statut;
 	}
 	public String getVip() {
 		return vip;
@@ -201,7 +202,7 @@ public class Salarie implements Serializable {
 			@Size(min = 2, max = 50) String level_1, @Size(min = 2, max = 50) String level_2,
 			@Size(min = 2, max = 50) String level_3, @Size(min = 2, max = 50) String level_4,
 			@Size(min = 2, max = 50) String level_5, Date hireDate, Date departDate, Date lastHireDate,
-			Date lastDepartDate, @Size(min = 2, max = 15) String branch_CD, @Size(min = 1, max = 6) String status,
+			Date lastDepartDate, @Size(min = 2, max = 15) String branch_CD, @Size(min = 1, max = 6) String statut,
 			@Size(min = 1, max = 2) String vip, @Size(min = 1, max = 2) String mySensitive, Date dateEndSensitive,
 			Individu individu) {
 		super();
@@ -219,7 +220,7 @@ public class Salarie implements Serializable {
 		this.lastHireDate = lastHireDate;
 		this.lastDepartDate = lastDepartDate;
 		this.branch_CD = branch_CD;
-		this.statut = status;
+		this.statut = statut;
 		this.vip = vip;
 		this.mySensitive = mySensitive;
 		this.dateEndSensitive = dateEndSensitive;
