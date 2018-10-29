@@ -10,6 +10,7 @@ import lu.amundi.be.entities.Salarie;
 
 public interface SalarieRepository extends JpaRepository<Salarie, String> {
 
-	@Query("select s from Salarie s where s.employeeId like :x")
+	@Query("select s from Salarie s where s.employeeId like :x or s.employeeStatus like :x or s.company_CD like :x"
+			+ " or s.individu.lastName like :x or s.individu.firstName like :x")
 	public Page<Salarie> chercher(@Param("x")String mc, Pageable pageable);
 }

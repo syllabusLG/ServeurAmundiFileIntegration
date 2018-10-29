@@ -10,6 +10,7 @@ import lu.amundi.be.entities.Adresse;
 
 public interface AdressRepository extends JpaRepository<Adresse, String> {
 	
-	@Query("select a from Adresse a where a.street like :x or a.individu.lastName like :x")
+	@Query("select a from Adresse a where a.street like :x or a.codePostal like :x or a.city like :x "
+			+ "or a.country like :x or a.individu.lastName like :x or a.individu.firstName like :x")
 	public Page<Adresse> chercher(@Param("x")String mc, Pageable pageable);
 }

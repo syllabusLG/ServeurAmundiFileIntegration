@@ -10,7 +10,8 @@ import lu.amundi.be.entities.Compte;
 
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 	
-	@Query("select cpte from Compte cpte where cpte.typeCompte like :x")
+	@Query("select cpte from Compte cpte where cpte.typeCompte like :x or cpte.libCompte like :x "
+			+ "or cpte.individu.lastName like :x or cpte.individu.firstName like :x")
 	public Page<Compte> chercher(@Param("x")String mc, Pageable pageable);
 
 }

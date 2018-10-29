@@ -10,6 +10,7 @@ import lu.amundi.be.entities.Contact;
 
 public interface ContactRepository extends JpaRepository<Contact, String> {
 	
-	@Query("select ct from Contact ct where ct.businessPhone like :x")
+	@Query("select ct from Contact ct where ct.businessPhone like :x or ct.homePhone like :x"
+			+ " or ct.cellPhone like :x or ct.individu.lastName like :x or ct.individu.firstName like :x")
 	public Page<Contact> chercher(@Param("x")String mc, Pageable pageable);
 }
