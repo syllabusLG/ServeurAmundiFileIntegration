@@ -33,7 +33,6 @@ public class Individu implements Serializable {
 	private String lastName;
 	private String useName;
 	private String firstName;
-	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate birthDate;
 	private String birthPlace;
@@ -51,7 +50,7 @@ public class Individu implements Serializable {
 	private Collection<Contact> contacts;
 	@JsonIgnore
 	@OneToMany(mappedBy="individu", fetch = FetchType.LAZY)
-	private Collection<Iban> ibans;
+	private Collection<Payment> payments;
 	
 	public String getNui() {
 		return nui;
@@ -136,11 +135,12 @@ public class Individu implements Serializable {
 	public void setContacts(Collection<Contact> contacts) {
 		this.contacts = contacts;
 	}
-	public Collection<Iban> getIbans() {
-		return ibans;
+	
+	public Collection<Payment> getPayments() {
+		return payments;
 	}
-	public void setIbans(Collection<Iban> ibans) {
-		this.ibans = ibans;
+	public void setPayments(Collection<Payment> payments) {
+		this.payments = payments;
 	}
 	@Override
 	public int hashCode() {
@@ -198,7 +198,7 @@ public class Individu implements Serializable {
 	}
 	public Individu(String nui, int civility, String lastName, String useName, String firstName, LocalDate birthDate,
 			String birthPlace, String birthCountry, String birthCountryLib, String nationality, Collection<Compte> comptes,
-			Collection<Adresse> adresses, Collection<Contact> contacts, Collection<Iban> ibans) {
+			Collection<Adresse> adresses, Collection<Contact> contacts, Collection<Payment> payment) {
 		super();
 		this.nui = nui;
 		this.civility = civility;
@@ -213,7 +213,7 @@ public class Individu implements Serializable {
 		this.comptes = comptes;
 		this.adresses = adresses;
 		this.contacts = contacts;
-		this.ibans = ibans;
+		this.payments = payment;
 	}
 	
 }

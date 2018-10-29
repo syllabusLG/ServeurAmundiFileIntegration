@@ -10,6 +10,6 @@ import lu.amundi.be.entities.Individu;
 
 public interface IndividuRepository extends JpaRepository<Individu, String> {
 
-	@Query("select ind from Individu ind where ind.nui like :x")
+	@Query("select ind from Individu ind where ind.nui like :x or ind.lastName like :x or ind.firstName like :x")
 	public Page<Individu> chercher(@Param("x")String mc, Pageable pageable);
 }
