@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 import lu.amundi.be.dao.RoleRepository;
 import lu.amundi.be.dao.UserRepository;
 import lu.amundi.be.entities.Individu;
@@ -31,6 +32,7 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 	public static void main(String[] args) {
 		SpringApplication.run(ServeurAmundiFileIntegrationApplication.class, args);
 	}
+	
 
 	@Override
 	public void run(String... args) throws Exception {

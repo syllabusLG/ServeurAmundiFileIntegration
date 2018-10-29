@@ -1,15 +1,13 @@
 package lu.amundi.be.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -47,18 +45,18 @@ public class Salarie implements Serializable {
 	private String level_4;
 
 	private String level_5;
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date hireDate;
-	@Temporal(TemporalType.DATE)
+	private LocalDate hireDate;
+	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date departDate;
-	@Temporal(TemporalType.DATE)
+	private LocalDate departDate;
+	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date lastHireDate;
-	@Temporal(TemporalType.DATE)
+	private LocalDate lastHireDate;
+	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date lastDepartDate;
+	private LocalDate lastDepartDate;
 	@Size(min=0, max=15)
 	private String branch_CD;
 	@Size(min=0, max=6)
@@ -67,9 +65,9 @@ public class Salarie implements Serializable {
 	private String vip;
 	@Size(min=0, max=2)
 	private String mySensitive;
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date dateEndSensitive;
+	private LocalDate dateEndSensitive;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_IND")
 	private Individu individu;
@@ -128,28 +126,28 @@ public class Salarie implements Serializable {
 	public void setLevel_5(String level_5) {
 		this.level_5 = level_5;
 	}
-	public Date getHireDate() {
+	public LocalDate getHireDate() {
 		return hireDate;
 	}
-	public void setHireDate(Date hireDate) {
+	public void setHireDate(LocalDate hireDate) {
 		this.hireDate = hireDate;
 	}
-	public Date getDepartDate() {
+	public LocalDate getDepartDate() {
 		return departDate;
 	}
-	public void setDepartDate(Date departDate) {
+	public void setDepartDate(LocalDate departDate) {
 		this.departDate = departDate;
 	}
-	public Date getLastHireDate() {
+	public LocalDate getLastHireDate() {
 		return lastHireDate;
 	}
-	public void setLastHireDate(Date lastHireDate) {
+	public void setLastHireDate(LocalDate lastHireDate) {
 		this.lastHireDate = lastHireDate;
 	}
-	public Date getLastDepartDate() {
+	public LocalDate getLastDepartDate() {
 		return lastDepartDate;
 	}
-	public void setLastDepartDate(Date lastDepartDate) {
+	public void setLastDepartDate(LocalDate lastDepartDate) {
 		this.lastDepartDate = lastDepartDate;
 	}
 	public String getBranch_CD() {
@@ -178,10 +176,10 @@ public class Salarie implements Serializable {
 	public void setMySensitive(String mySensitive) {
 		this.mySensitive = mySensitive;
 	}
-	public Date getDateEndSensitive() {
+	public LocalDate getDateEndSensitive() {
 		return dateEndSensitive;
 	}
-	public void setDateEndSensitive(Date dateEndSensitive) {
+	public void setDateEndSensitive(LocalDate dateEndSensitive) {
 		this.dateEndSensitive = dateEndSensitive;
 	}
 	
@@ -201,9 +199,9 @@ public class Salarie implements Serializable {
 			@Size(min = 2, max = 10) String company_CD, @Size(min = 2, max = 50) String spc,
 			@Size(min = 2, max = 50) String level_1, @Size(min = 2, max = 50) String level_2,
 			@Size(min = 2, max = 50) String level_3, @Size(min = 2, max = 50) String level_4,
-			@Size(min = 2, max = 50) String level_5, Date hireDate, Date departDate, Date lastHireDate,
-			Date lastDepartDate, @Size(min = 2, max = 15) String branch_CD, @Size(min = 1, max = 6) String statut,
-			@Size(min = 1, max = 2) String vip, @Size(min = 1, max = 2) String mySensitive, Date dateEndSensitive,
+			@Size(min = 2, max = 50) String level_5, LocalDate hireDate, LocalDate departDate, LocalDate lastHireDate,
+			LocalDate lastDepartDate, @Size(min = 2, max = 15) String branch_CD, @Size(min = 1, max = 6) String statut,
+			@Size(min = 1, max = 2) String vip, @Size(min = 1, max = 2) String mySensitive, LocalDate dateEndSensitive,
 			Individu individu) {
 		super();
 		this.employeeId = employeeId;

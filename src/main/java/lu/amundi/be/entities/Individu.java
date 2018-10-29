@@ -1,8 +1,8 @@
 package lu.amundi.be.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,9 +33,9 @@ public class Individu implements Serializable {
 	private String lastName;
 	private String useName;
 	private String firstName;
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date birthDate;
+	private LocalDate birthDate;
 	private String birthPlace;
 	private String birthCountry;
 	private String birthCountryLib;
@@ -83,10 +83,10 @@ public class Individu implements Serializable {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 	
@@ -169,7 +169,7 @@ public class Individu implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Individu(String nui, int civility, String lastName, String useName, String firstName, Date birthDate,
+	public Individu(String nui, int civility, String lastName, String useName, String firstName, LocalDate birthDate,
 			String birthPlace, String birthCountry, String birthCountryLib, String nationality) {
 		super();
 		this.nui = nui;
@@ -183,7 +183,7 @@ public class Individu implements Serializable {
 		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 	}
-	public Individu(int civility, String lastName, String useName, String firstName, Date birthDate, String birthPlace,
+	public Individu(int civility, String lastName, String useName, String firstName, LocalDate birthDate, String birthPlace,
 			String birthCountry, String birthCountryLib, String nationality) {
 		super();
 		this.civility = civility;
@@ -196,7 +196,7 @@ public class Individu implements Serializable {
 		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 	}
-	public Individu(String nui, int civility, String lastName, String useName, String firstName, Date birthDate,
+	public Individu(String nui, int civility, String lastName, String useName, String firstName, LocalDate birthDate,
 			String birthPlace, String birthCountry, String birthCountryLib, String nationality, Collection<Compte> comptes,
 			Collection<Adresse> adresses, Collection<Contact> contacts, Collection<Iban> ibans) {
 		super();
