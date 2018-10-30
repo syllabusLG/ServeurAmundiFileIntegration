@@ -63,9 +63,23 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 		
 		Role roleUser = new Role(RoleEnum.ROLE_USER);
 		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
+		Role roleIndividu = new Role(RoleEnum.ROLE_INDIVIDUS);
+		Role roleSalarie = new Role(RoleEnum.ROLE_SALARIE);
+		Role roleAdresse = new Role(RoleEnum.ROLE_ADRESSE);
+		Role rolePayment = new Role(RoleEnum.ROLE_PAYMENT);
+		Role roleDashboard = new Role(RoleEnum.ROLE_DASHBOARD);
+		Role roleCompte = new Role(RoleEnum.ROLE_COMPTE);
+		Role roleContact = new Role(RoleEnum.ROLE_CONTACT);
 		
 		roleRepository.save(roleUser);
 		roleRepository.save(roleAdmin);
+		roleRepository.save(roleIndividu);
+		roleRepository.save(roleSalarie);
+		roleRepository.save(roleAdresse);
+		roleRepository.save(rolePayment);
+		roleRepository.save(roleDashboard);
+		roleRepository.save(roleCompte);
+		roleRepository.save(roleContact);
 		
 		
 		
@@ -74,7 +88,8 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 		userRepository.save(user);
 		
 		User admin = new User("admin", "amundiAdmin2018", "", "", true);
-		admin.setRoles(Arrays.asList(roleUser, roleAdmin));
+		admin.setRoles(Arrays.asList(roleUser, roleAdmin, roleIndividu, roleSalarie, 
+				roleAdresse, rolePayment, roleDashboard, roleCompte, roleContact));
 		userRepository.save(admin);
 		
 	}

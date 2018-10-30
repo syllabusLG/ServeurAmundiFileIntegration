@@ -1,5 +1,6 @@
 package lu.amundi.be.service.impl;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,14 +11,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lu.amundi.be.dao.UserRepository;
+import lu.amundi.be.entities.Role;
 import lu.amundi.be.entities.User;
 import lu.amundi.be.service.ICrudService;
+import lu.amundi.be.service.IRolesService;
 
 
 
 @Service
 @Primary
-public class UserService implements ICrudService<User, Long>{
+public class UserService implements ICrudService<User, Long>, IRolesService{
 
 	@Autowired
 	private UserRepository userRepository;
@@ -47,20 +50,24 @@ public class UserService implements ICrudService<User, Long>{
 
 	@Override
 	public void saveAll(Iterable<User> iterable) {
-		// TODO Auto-generated method stub
 		userRepository.saveAll(iterable);
 	}
 
 	@Override
 	public Optional<User> findOne(Long id) {
-		// TODO Auto-generated method stub
 		return userRepository.findById(id);
 	}
 
 	@Override
 	public Page<User> search(String mc, Pageable pageable) {
-		// TODO Auto-generated method stub
 		return userRepository.chercher(mc, pageable);
+	}
+
+	@Override
+	public void updateUserRoles(User user, Collection<Role> roles) {
+		user.setRoles(roles);
+		userRepository.save(user);
+		
 	}
 
 }
