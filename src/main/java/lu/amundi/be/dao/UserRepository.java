@@ -11,6 +11,8 @@ import lu.amundi.be.entities.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 	
 	public User findByUsername(String username);
+	@Query("select u from User u where u.id = :x")
+	public User findByIdUser(@Param("x")Long id);
 	@Query("select u from User u where u.username like :y")
 	public Page<User> chercher(@Param("y")String mc, Pageable pageable);
 
