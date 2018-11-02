@@ -59,12 +59,12 @@ public class CrudUserController extends CrudControlller<User, Long>{
 		roleService.updateUserRoles(user, roles);
 	}
 	
-	@RequestMapping(value="rolesByUser", method = RequestMethod.GET)
+	@RequestMapping(value="roles", method = RequestMethod.GET)
 	public Collection<Role> getAllRoles(){
 		return roleRepository.findAll();
 	}
 	
-	@RequestMapping(value="rolesByUser/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="roles/{id}", method = RequestMethod.GET)
 	public Collection<Role> getAllRolesByUser(@PathVariable Long id){
 		User user = userRepository.findByIdUser(id);
 		return user.getRoles();
