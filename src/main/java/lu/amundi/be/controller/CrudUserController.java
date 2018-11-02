@@ -3,12 +3,8 @@ package lu.amundi.be.controller;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +14,6 @@ import lu.amundi.be.dao.RoleRepository;
 import lu.amundi.be.dao.UserRepository;
 import lu.amundi.be.entities.Role;
 import lu.amundi.be.entities.User;
-import lu.amundi.be.service.IRolesService;
 import lu.amundi.be.utils.RoleEnum;
 /**
  * 
@@ -33,8 +28,6 @@ public class CrudUserController extends CrudControlller<User, Long>{
 	private RoleRepository roleRepository;
 	@Autowired
 	private UserRepository userRepository;
-	@Autowired
-	private IRolesService roleService;
 	
 	@Override
 	public List<User> getAll() {
@@ -54,10 +47,6 @@ public class CrudUserController extends CrudControlller<User, Long>{
 		super.add(user);
 	}
 	
-	@RequestMapping(value="/habilitation", method = RequestMethod.PUT)
-	public void habilitation(@RequestBody User user, @RequestBody Collection<Role> roles) {
-		roleService.updateUserRoles(user, roles);
-	}
 	
 	@RequestMapping(value="roles", method = RequestMethod.GET)
 	public Collection<Role> getAllRoles(){
