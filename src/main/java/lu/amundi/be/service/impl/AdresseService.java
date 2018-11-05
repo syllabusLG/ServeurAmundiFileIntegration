@@ -12,7 +12,11 @@ import org.springframework.stereotype.Service;
 import lu.amundi.be.dao.AdressRepository;
 import lu.amundi.be.entities.Adresse;
 import lu.amundi.be.service.ICrudService;
-
+/**
+ * 
+ * @author AbousyllabaNdiaye
+ *
+ */
 @Service
 @Primary
 public class AdresseService implements ICrudService<Adresse, String> {
