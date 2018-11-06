@@ -2,6 +2,7 @@ package lu.amundi.be.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,8 @@ public class Audit implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String username;
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private LocalDate loginDate;
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
+	private LocalDateTime loginDate;
 	private String uploadFileName;
 	private String errorFileName;
 	private String reportFileName;
@@ -62,10 +63,11 @@ public class Audit implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public LocalDate getLoginDate() {
+	
+	public LocalDateTime getLoginDate() {
 		return loginDate;
 	}
-	public void setLoginDate(LocalDate loginDate) {
+	public void setLoginDate(LocalDateTime loginDate) {
 		this.loginDate = loginDate;
 	}
 	public String getUploadFileName() {
@@ -194,7 +196,7 @@ public class Audit implements Serializable{
 	public void setDeleteCompte(String deleteCompte) {
 		this.deleteCompte = deleteCompte;
 	}
-	public Audit(String username, LocalDate loginDate, String uploadFileName, String errorFileName, String reportFileName,
+	public Audit(String username, LocalDateTime loginDate, String uploadFileName, String errorFileName, String reportFileName,
 			String individuReportCSV, String salarieReportCSV, String contactReportCSV, String paymentReportCSV,
 			String adresseReportCSV, String compteReportCSV, String updateIndividu, String updateSalarie,
 			String updateContact, String updatePayment, String updateAdresse, String updateCompte,
