@@ -51,6 +51,9 @@ public class Audit implements Serializable{
 	private String deleteAdresse;
 	private String deleteCompte;
 	private String habilitation;
+	private String createUser;
+	private String updateUser;
+	private String deleteUser;
 	
 	public Long getId() {
 		return id;
@@ -206,12 +209,33 @@ public class Audit implements Serializable{
 	public void setHabilitation(String habilitation) {
 		this.habilitation = habilitation;
 	}
-	public Audit(String username, LocalDateTime loginDate, String uploadFileName, String errorFileName, String reportFileName,
-			String individuReportCSV, String salarieReportCSV, String contactReportCSV, String paymentReportCSV,
-			String adresseReportCSV, String compteReportCSV, String updateIndividu, String updateSalarie,
-			String updateContact, String updatePayment, String updateAdresse, String updateCompte,
+	
+	public String getCreateUser() {
+		return createUser;
+	}
+	public void setCreateUser(String createUser) {
+		this.createUser = createUser;
+	}
+	public String getUpdateUser() {
+		return updateUser;
+	}
+	public void setUpdateUser(String updateUser) {
+		this.updateUser = updateUser;
+	}
+	public String getDeleteUser() {
+		return deleteUser;
+	}
+	public void setDeleteUser(String deleteUser) {
+		this.deleteUser = deleteUser;
+	}
+	
+	public Audit(String username, LocalDateTime loginDate, String uploadFileName, String errorFileName,
+			String reportFileName, String individuReportCSV, String salarieReportCSV, String contactReportCSV,
+			String paymentReportCSV, String adresseReportCSV, String compteReportCSV, String updateIndividu,
+			String updateSalarie, String updateContact, String updatePayment, String updateAdresse, String updateCompte,
 			String deleteIndividu, String deleteSalarie, String deleteContact, String deletePayment,
-			String deleteAdresse, String deleteCompte, String habilitation) {
+			String deleteAdresse, String deleteCompte, String habilitation, String createUser, String updateUser,
+			String deleteUser) {
 		super();
 		this.username = username;
 		this.loginDate = loginDate;
@@ -237,6 +261,9 @@ public class Audit implements Serializable{
 		this.deleteAdresse = deleteAdresse;
 		this.deleteCompte = deleteCompte;
 		this.habilitation = habilitation;
+		this.createUser = createUser;
+		this.updateUser = updateUser;
+		this.deleteUser = deleteUser;
 	}
 	public Audit() {
 		super();
