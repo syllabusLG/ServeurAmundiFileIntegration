@@ -50,6 +50,8 @@ public class Audit implements Serializable{
 	private String deletePayment;
 	private String deleteAdresse;
 	private String deleteCompte;
+	private String habilitation;
+	
 	public Long getId() {
 		return id;
 	}
@@ -196,12 +198,20 @@ public class Audit implements Serializable{
 	public void setDeleteCompte(String deleteCompte) {
 		this.deleteCompte = deleteCompte;
 	}
+	
+	
+	public String getHabilitation() {
+		return habilitation;
+	}
+	public void setHabilitation(String habilitation) {
+		this.habilitation = habilitation;
+	}
 	public Audit(String username, LocalDateTime loginDate, String uploadFileName, String errorFileName, String reportFileName,
 			String individuReportCSV, String salarieReportCSV, String contactReportCSV, String paymentReportCSV,
 			String adresseReportCSV, String compteReportCSV, String updateIndividu, String updateSalarie,
 			String updateContact, String updatePayment, String updateAdresse, String updateCompte,
 			String deleteIndividu, String deleteSalarie, String deleteContact, String deletePayment,
-			String deleteAdresse, String deleteCompte) {
+			String deleteAdresse, String deleteCompte, String habilitation) {
 		super();
 		this.username = username;
 		this.loginDate = loginDate;
@@ -226,6 +236,7 @@ public class Audit implements Serializable{
 		this.deletePayment = deletePayment;
 		this.deleteAdresse = deleteAdresse;
 		this.deleteCompte = deleteCompte;
+		this.habilitation = habilitation;
 	}
 	public Audit() {
 		super();
