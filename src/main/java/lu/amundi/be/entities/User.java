@@ -33,6 +33,7 @@ public class User implements Serializable {
 	@Column(unique=true)
 	private String username;
 	private String password;
+	private String newPassword;
 	private String firstName;
 	private String lastName;
 	private boolean enable;
@@ -81,6 +82,12 @@ public class User implements Serializable {
 		this.password = password;
 	}
 	
+	public String getNewPassword() {
+		return newPassword;
+	}
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
 	public Collection<Role> getRoles() {
 		return roles;
 	}
@@ -94,19 +101,21 @@ public class User implements Serializable {
 	
 	
 	
-	public User(String username, String password, String firstName, String lastName, boolean enable) {
+	public User(String username, String password, String newPassword, String firstName, String lastName, boolean enable) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.newPassword = newPassword;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.enable = enable;
 	}
-	public User(String username, String password, String firstName, String lastName, boolean enable,
+	public User(String username, String password, String newPassword, String firstName, String lastName, boolean enable,
 			Collection<Role> roles) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.newPassword = newPassword;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.enable = enable;
