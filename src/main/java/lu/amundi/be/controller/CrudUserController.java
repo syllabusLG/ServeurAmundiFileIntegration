@@ -58,6 +58,10 @@ public class CrudUserController extends CrudControlller<User, Long>{
 		User user = userRepository.findByIdUser(id);
 		return user.getRoles();
 	}
+	@RequestMapping(value="user/{username}", method = RequestMethod.GET)
+	public User getUserByUserName(@PathVariable String username) {
+		return userRepository.findByUsername(username);
+	}
 	
 	
 }
