@@ -1,5 +1,7 @@
 package lu.amundi.be;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import lu.amundi.be.entities.Role;
 import lu.amundi.be.entities.Salarie;
 import lu.amundi.be.entities.User;
 import lu.amundi.be.service.ICrudService;
+import lu.amundi.be.utils.EncodePassword;
 import lu.amundi.be.utils.RoleEnum;
 
 @SpringBootApplication
@@ -83,14 +86,15 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 		
 		
 		
-		User user = new User("user", "amundi2018", "", "Lionel", "Messi", true);
+		User user = new User("user", EncodePassword.getPassword("amundi2018"), "", "Lionel", "Messi", true);
 		user.setRoles(Arrays.asList(roleUser));
 		userRepository.save(user);
 		
-		User admin = new User("admin", "amundiAdmin2018", "", "Cristiano", "Ronaldo", true);
+		User admin = new User("admin", EncodePassword.getPassword("amundiAdmin2018"), "", "Cristiano", "Ronaldo", true);
 		admin.setRoles(Arrays.asList(roleUser, roleAdmin, roleIndividu, roleSalarie, 
 				roleAdresse, rolePayment, roleDashboard, roleCompte, roleContact));
 		userRepository.save(admin);
 		
 	}
+	   
 }

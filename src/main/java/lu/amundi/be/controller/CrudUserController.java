@@ -14,6 +14,7 @@ import lu.amundi.be.dao.RoleRepository;
 import lu.amundi.be.dao.UserRepository;
 import lu.amundi.be.entities.Role;
 import lu.amundi.be.entities.User;
+import lu.amundi.be.utils.EncodePassword;
 import lu.amundi.be.utils.RoleEnum;
 /**
  * 
@@ -43,10 +44,15 @@ public class CrudUserController extends CrudControlller<User, Long>{
 		Role role = roleRepository.findByName(RoleEnum.ROLE_USER.getName());
 		user.setRoles(Arrays.asList(role));
 		user.setEnable(true);
-		user.setPassword("amundi2018");
+		user.setPassword(EncodePassword.getPassword("amundi2018"));
 		super.add(user);
 	}
 	
+	@Override
+	public void update(User user) {
+		user.setPassword(EncodePassword.getPassword(user.getPassword()));
+		super.update(user);
+	}
 	
 	@RequestMapping(value="roles", method = RequestMethod.GET)
 	public Collection<Role> getAllRoles(){
