@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Size;
 /**
  * 
  * @author AbousyllabaNdiaye
@@ -37,7 +38,8 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private boolean enable;
-	private boolean isPasswordChange;
+	@Size(min=0, max=5)
+	private String changePassword;
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="USERS_ROLES",
 	joinColumns= {@JoinColumn(name= "USER_ID")},
@@ -58,11 +60,12 @@ public class User implements Serializable {
 		this.enable = enable;
 	}
 	
-	public boolean isPasswordChange() {
-		return isPasswordChange;
+	
+	public String getChangePassword() {
+		return changePassword;
 	}
-	public void setPasswordChange(boolean isPasswordChange) {
-		this.isPasswordChange = isPasswordChange;
+	public void setChangePassword(String changePassword) {
+		this.changePassword = changePassword;
 	}
 	public String getUsername() {
 		return username;
@@ -110,7 +113,8 @@ public class User implements Serializable {
 	
 	
 	
-	public User(String username, String password, String oldPassword, String firstName, String lastName, boolean enable, boolean isPasswordChange) {
+	public User(String username, String password, String oldPassword, String firstName, String lastName, boolean enable, 
+			String changePassword) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -118,10 +122,10 @@ public class User implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.enable = enable;
-		this.isPasswordChange = isPasswordChange;
+		this.changePassword = changePassword;
 	}
 	public User(String username, String password, String oldPassword, String firstName, String lastName, boolean enable,
-			boolean isPasswordChange, Collection<Role> roles) {
+			String changePassword, Collection<Role> roles) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -129,7 +133,7 @@ public class User implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.enable = enable;
-		this.isPasswordChange = isPasswordChange;
+		this.changePassword = changePassword;
 		this.roles = roles;
 	}
 	@Override

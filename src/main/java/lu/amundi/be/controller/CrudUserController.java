@@ -44,13 +44,14 @@ public class CrudUserController extends CrudControlller<User, Long>{
 		Role role = roleRepository.findByName(RoleEnum.ROLE_USER.getName());
 		user.setRoles(Arrays.asList(role));
 		user.setEnable(true);
+		user.setChangePassword("FALSE");
 		user.setPassword(EncodePassword.getPassword("amundi2018"));
 		super.add(user);
 	}
 	
 	@Override
 	public void update(@RequestBody User user) {
-		if(user.isPasswordChange()) {
+		if(user.getChangePassword().equals("TRUE")) {
 			user.setPassword(EncodePassword.getPassword(user.getPassword()));
 		}
 		
