@@ -86,11 +86,11 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 		
 		
 		
-		User user = new User("user", EncodePassword.getPassword("amundi2018"), "", "Lionel", "Messi", true);
+		User user = new User("user", EncodePassword.getPassword("amundi2018"), "", "Lionel", "Messi", true, false);
 		user.setRoles(Arrays.asList(roleUser));
 		userRepository.save(user);
 		
-		User admin = new User("admin", EncodePassword.getPassword("amundiAdmin2018"), "", "Cristiano", "Ronaldo", true);
+		User admin = new User("admin", EncodePassword.getPassword("amundiAdmin2018"), "", "Cristiano", "Ronaldo", true, false);
 		admin.setRoles(Arrays.asList(roleUser, roleAdmin, roleIndividu, roleSalarie, 
 				roleAdresse, rolePayment, roleDashboard, roleCompte, roleContact));
 		userRepository.save(admin);

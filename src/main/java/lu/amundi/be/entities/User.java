@@ -37,6 +37,7 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private boolean enable;
+	private boolean isPasswordChange;
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="USERS_ROLES",
 	joinColumns= {@JoinColumn(name= "USER_ID")},
@@ -55,6 +56,13 @@ public class User implements Serializable {
 	}
 	public void setEnable(boolean enable) {
 		this.enable = enable;
+	}
+	
+	public boolean isPasswordChange() {
+		return isPasswordChange;
+	}
+	public void setPasswordChange(boolean isPasswordChange) {
+		this.isPasswordChange = isPasswordChange;
 	}
 	public String getUsername() {
 		return username;
@@ -102,7 +110,7 @@ public class User implements Serializable {
 	
 	
 	
-	public User(String username, String password, String oldPassword, String firstName, String lastName, boolean enable) {
+	public User(String username, String password, String oldPassword, String firstName, String lastName, boolean enable, boolean isPasswordChange) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -110,9 +118,10 @@ public class User implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.enable = enable;
+		this.isPasswordChange = isPasswordChange;
 	}
 	public User(String username, String password, String oldPassword, String firstName, String lastName, boolean enable,
-			Collection<Role> roles) {
+			boolean isPasswordChange, Collection<Role> roles) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -120,6 +129,7 @@ public class User implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.enable = enable;
+		this.isPasswordChange = isPasswordChange;
 		this.roles = roles;
 	}
 	@Override

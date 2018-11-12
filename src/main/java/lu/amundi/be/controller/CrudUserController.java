@@ -30,14 +30,14 @@ public class CrudUserController extends CrudControlller<User, Long>{
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Override
+	/*@Override
 	public List<User> getAll() {
 		List<User> users = super.getAll();
 		users.forEach(user ->{
 			user.setPassword(null);
 		});
 		return users;
-	}
+	}*/
 	
 	@Override
 	public void add(@RequestBody User user) {
@@ -50,7 +50,10 @@ public class CrudUserController extends CrudControlller<User, Long>{
 	
 	@Override
 	public void update(@RequestBody User user) {
-		user.setPassword(EncodePassword.getPassword(user.getPassword()));
+		if(user.isPasswordChange()) {
+			user.setPassword(EncodePassword.getPassword(user.getPassword()));
+		}
+		
 		super.update(user);
 	}
 	
