@@ -49,14 +49,7 @@ public class CrudUserController extends CrudControlller<User, Long>{
 		super.add(user);
 	}
 	
-	@Override
-	public void update(@RequestBody User user) {
-		if(user.getChangePassword().equals("TRUE")) {
-			user.setPassword(EncodePassword.getPassword(user.getPassword()));
-		}
-		
-		super.update(user);
-	}
+	
 	
 	@RequestMapping(value="roles", method = RequestMethod.GET)
 	public Collection<Role> getAllRoles(){
