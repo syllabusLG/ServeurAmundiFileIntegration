@@ -1,7 +1,5 @@
 package lu.amundi.be;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
