@@ -5,7 +5,14 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
+/**
+ * This generic interface is used by all crud operation 
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ * @param <T>
+ * @param <ID>
+ */
 public interface ICrudService<T, ID> {
 	
 	public List<T> getAll();

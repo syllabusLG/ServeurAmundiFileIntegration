@@ -2,9 +2,19 @@ package lu.amundi.be.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+/**
+ * This class is an useful class that used to encode password
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 public class EncodePassword {
 
+	/**
+	 * This function take a password and return the password encoded in MD5 format
+	 * @param password: String
+	 * @return String
+	 */
 	public static String getPassword(String password){
 		String generatedPassword = null;
         try {

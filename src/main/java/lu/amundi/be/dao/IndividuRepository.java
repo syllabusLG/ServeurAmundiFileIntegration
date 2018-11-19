@@ -7,7 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import lu.amundi.be.entities.Individu;
-
+/**
+ * This interface is a repository for class Individu based on spring data
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 public interface IndividuRepository extends JpaRepository<Individu, String> {
 
 	@Query("select ind from Individu ind where ind.nui like :x or ind.lastName like :x or ind.firstName like :x")

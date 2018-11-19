@@ -13,8 +13,9 @@ import lu.amundi.be.dao.AuditRepository;
 import lu.amundi.be.entities.Audit;
 import lu.amundi.be.service.ICrudService;
 /**
- * 
+ * This service uses the generic interface ICrudService to implement all crud operation according to Audit
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @Service

@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lu.amundi.be.entities.Audit;
 /**
- * 
+ * This class is a restController that exposes all audit services to client
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @RestController

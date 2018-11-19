@@ -18,6 +18,14 @@ import lu.amundi.be.service.ICrudService;
 import lu.amundi.be.utils.EncodePassword;
 import lu.amundi.be.utils.RoleEnum;
 
+/**
+ * The project entry point
+ * this class scan all classes and triggers auto configuration
+ * 
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @SpringBootApplication
 public class ServeurAmundiFileIntegrationApplication implements CommandLineRunner{
 

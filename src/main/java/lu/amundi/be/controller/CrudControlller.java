@@ -21,47 +21,79 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import lu.amundi.be.service.ICrudService;
 /**
- * 
+ * A generic class that regroup all generic services.
+ * The generic service will be used by others classes that use the crud functions.
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
- * @param <T>
- * @param <ID>
+ * @param <T>: generic class
+ * @param <ID>: generic id
  */
 public class CrudControlller<T, ID> {
 	
 	@Autowired
 	private ICrudService<T, ID> service;
 	
+	/**
+	 * This generic function return a list of T
+	 * @return a list of T
+	 */
 	@GetMapping
 	public List<T> getAll(){
 		return service.getAll();
 	}
 	
+	/**
+	 * This generic function use the service to add the generic entity T
+	 * @param entity:  generic entity
+	 */
 	@PostMapping
 	public void add(@RequestBody T entity) {
 		service.add(entity);
 	}
 	
+	/**
+	 * This generic function use the service to update the generic entity T
+	 * @param entity: generic entity
+	 */
 	@PutMapping
 	public void update(@RequestBody T entity) {
 		service.update(entity);
 	}
-	
+	/**
+	 * This generic function use a service to delete an entity by generic id
+	 * @param id
+	 */
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable ID id) {
 		service.delete(id);
 	}
+	/**
+	 * This generic function use a service to add a list of entity
+	 * @param list
+	 * @return
+	 */
 	@PostMapping("/all")
 	public ResponseEntity<List<T>> addAll(@RequestBody List<T> list){
 		service.saveAll(list);
 		return new ResponseEntity<>(list, HttpStatus.ACCEPTED);
 	}
-	
+	/**
+	 * This generic function use a service to find one entity by id
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public Optional<T> getOne(@PathVariable ID id) {
 		return service.findOne(id);
 	}
-	
+	/**
+	 * This generic function use a service to find a page of entity T by using key and size for the pagination
+	 * @param mc: key
+	 * @param page: numero of page
+	 * @param size: number of pages to render
+	 * @return
+	 */
 	@RequestMapping(value="/search", method = RequestMethod.GET)
 	public Page<T> search(
 			@RequestParam(name="mc", defaultValue="")String mc,

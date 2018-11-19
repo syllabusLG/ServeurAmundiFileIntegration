@@ -8,6 +8,12 @@ import org.springframework.data.repository.query.Param;
 
 import lu.amundi.be.entities.Salarie;
 
+/**
+ * This interface is a repository for class Salarie based on spring data
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 public interface SalarieRepository extends JpaRepository<Salarie, String> {
 
 	@Query("select s from Salarie s where s.employeeId like :x or s.employeeStatus like :x or s.company_CD like :x"

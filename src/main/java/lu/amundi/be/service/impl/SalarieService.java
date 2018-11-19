@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service;
 import lu.amundi.be.dao.SalarieRepository;
 import lu.amundi.be.entities.Salarie;
 import lu.amundi.be.service.ICrudService;
+/**
+ * This service uses the generic interface ICrudService to implement all crud operation according to Salarie
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Service
 @Primary
 public class SalarieService implements ICrudService<Salarie, String> {

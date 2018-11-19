@@ -16,7 +16,7 @@ import org.springframework.lang.NonNull;
 /**
  * 
  * @author AbousyllabaNdiaye
- *
+ * @version 1.0
  */
 
 @Entity

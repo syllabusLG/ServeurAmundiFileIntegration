@@ -13,6 +13,12 @@ import lu.amundi.be.dao.ReportUpdateFileRepository;
 import lu.amundi.be.entities.ReportUpdateFile;
 import lu.amundi.be.service.ICrudService;
 
+/**
+ * This service uses the generic interface ICrudService to implement all crud operation according to ReportUpdateFile
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Service
 @Primary
 public class ReportUpdateFileService implements ICrudService<ReportUpdateFile, Long> {

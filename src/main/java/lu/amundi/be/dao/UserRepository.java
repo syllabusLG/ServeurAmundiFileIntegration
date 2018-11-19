@@ -7,7 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import lu.amundi.be.entities.User;
-
+/**
+ * This interface is a repository for class User based on spring data
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 public interface UserRepository extends JpaRepository<User, Long> {
 	
 	public User findByUsername(String username);

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 /**
  * 
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @Entity

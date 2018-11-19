@@ -13,6 +13,12 @@ import lu.amundi.be.dao.PaymentRepository;
 import lu.amundi.be.entities.Payment;
 import lu.amundi.be.service.ICrudService;
 
+/**
+ * This service uses the generic interface ICrudService to implement all crud operation according to Payment
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Service
 @Primary
 public class PaymentService implements ICrudService<Payment, String>{

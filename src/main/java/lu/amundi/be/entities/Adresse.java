@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 /**
  * 
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @Entity

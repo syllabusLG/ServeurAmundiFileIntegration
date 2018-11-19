@@ -1,5 +1,10 @@
 package lu.amundi.be.utils;
-
+/**
+ * This enum is used as an useful component to provide all types of user Role.
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 public enum RoleEnum {
 	
 	ROLE_USER("ROLE_USER"),

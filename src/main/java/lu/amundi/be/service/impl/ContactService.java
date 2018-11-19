@@ -13,6 +13,12 @@ import lu.amundi.be.dao.ContactRepository;
 import lu.amundi.be.entities.Contact;
 import lu.amundi.be.service.ICrudService;
 
+/**
+ * This service uses the generic interface ICrudService to implement all crud operation according to Contact
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Service
 @Primary
 public class ContactService implements ICrudService<Contact, String>{

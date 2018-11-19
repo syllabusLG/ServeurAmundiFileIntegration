@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 /**
  * 
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @Entity

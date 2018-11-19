@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * 
  * @author AbousyllabaNdiaye
- * Entity Individu
+ * @version 1.0
  */
 
 @Entity

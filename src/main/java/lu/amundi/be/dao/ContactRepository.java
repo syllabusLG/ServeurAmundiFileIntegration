@@ -7,7 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import lu.amundi.be.entities.Contact;
-
+/**
+ * This interface is a repository for class contact based on spring data
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 public interface ContactRepository extends JpaRepository<Contact, String> {
 	
 	@Query("select ct from Contact ct where ct.businessPhone like :x or ct.homePhone like :x"

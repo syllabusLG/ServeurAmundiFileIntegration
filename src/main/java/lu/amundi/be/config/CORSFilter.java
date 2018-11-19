@@ -15,7 +15,13 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * This class is used to give all access to the requests coming from the client application 
+ * 
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CORSFilter implements Filter {

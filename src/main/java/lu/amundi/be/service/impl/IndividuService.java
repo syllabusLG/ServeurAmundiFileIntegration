@@ -13,8 +13,9 @@ import lu.amundi.be.dao.IndividuRepository;
 import lu.amundi.be.entities.Individu;
 import lu.amundi.be.service.ICrudService;
 /**
- * 
+ * This service uses the generic interface ICrudService to implement all crud operation according to Individu
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @Service

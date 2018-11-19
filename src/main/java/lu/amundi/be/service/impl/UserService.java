@@ -13,7 +13,12 @@ import lu.amundi.be.dao.UserRepository;
 import lu.amundi.be.entities.User;
 import lu.amundi.be.service.ICrudService;
 
-
+/**
+ * This service uses the generic interface ICrudService to implement all crud operation according to User
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Service
 @Primary
 public class UserService implements ICrudService<User, Long>{

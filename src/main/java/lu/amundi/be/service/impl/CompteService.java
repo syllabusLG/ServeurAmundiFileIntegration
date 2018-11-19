@@ -13,7 +13,12 @@ import lu.amundi.be.dao.CompteRepository;
 import lu.amundi.be.entities.Compte;
 import lu.amundi.be.service.ICrudService;
 
-
+/**
+ * This service uses the generic interface ICrudService to implement all crud operation according to Compte
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Service
 @Primary
 public class CompteService implements ICrudService<Compte, Long>{

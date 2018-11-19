@@ -13,6 +13,12 @@ import lu.amundi.be.dao.ReportCreateFileRepository;
 import lu.amundi.be.entities.ReportCreateFile;
 import lu.amundi.be.service.ICrudService;
 
+/**
+ * This service uses the generic interface ICrudService to implement all crud operation according to ReportCreateFile
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Service
 @Primary
 public class ReportCreateFileService implements ICrudService<ReportCreateFile, Long> {

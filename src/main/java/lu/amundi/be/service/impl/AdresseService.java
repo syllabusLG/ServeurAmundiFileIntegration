@@ -13,8 +13,9 @@ import lu.amundi.be.dao.AdressRepository;
 import lu.amundi.be.entities.Adresse;
 import lu.amundi.be.service.ICrudService;
 /**
- * 
+ * This service uses the generic interface ICrudService to implement all crud operation according to Adresse
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @Service

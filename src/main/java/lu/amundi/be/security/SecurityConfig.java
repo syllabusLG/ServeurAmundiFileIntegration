@@ -10,8 +10,10 @@ import org.springframework.security.crypto.password.MessageDigestPasswordEncoder
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 /**
- * 
+ * This class is used for the security of this application.
+ * It gives access for different kind of users
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 

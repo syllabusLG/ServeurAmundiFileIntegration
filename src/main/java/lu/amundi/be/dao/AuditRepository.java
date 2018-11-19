@@ -8,8 +8,9 @@ import org.springframework.data.repository.query.Param;
 
 import lu.amundi.be.entities.Audit;
 /**
- * 
+ * This interface is a repository for class Audit based on spring data
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 public interface AuditRepository extends JpaRepository<Audit, Long> {

@@ -17,8 +17,9 @@ import lu.amundi.be.entities.User;
 import lu.amundi.be.utils.EncodePassword;
 import lu.amundi.be.utils.RoleEnum;
 /**
- * 
+ * This class is a restController that exposes all crudUser services to client
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @RestController
@@ -50,12 +51,19 @@ public class CrudUserController extends CrudControlller<User, Long>{
 	}
 	
 	
-	
+	/**
+	 * This function expose a service which return all roles
+	 * @return all roles
+	 */
 	@RequestMapping(value="roles", method = RequestMethod.GET)
 	public Collection<Role> getAllRoles(){
 		return roleRepository.findAll();
 	}
-	
+	/**
+	 * This function expose a service which  return all user roles
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value="roles/{id}", method = RequestMethod.GET)
 	public Collection<Role> getAllRolesByUser(@PathVariable Long id){
 		User user = userRepository.findByIdUser(id);

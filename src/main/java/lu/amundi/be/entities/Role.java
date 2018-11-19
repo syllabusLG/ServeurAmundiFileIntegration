@@ -11,6 +11,7 @@ import lu.amundi.be.utils.RoleEnum;
 /**
  * 
  * @author AbousyllabaNdiaye
+ * @version 1.0
  *
  */
 @Entity
