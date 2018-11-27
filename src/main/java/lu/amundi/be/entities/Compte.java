@@ -1,11 +1,16 @@
 package lu.amundi.be.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * 
  * @author AbousyllabaNdiaye
@@ -33,6 +38,9 @@ public  class Compte implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_IND")
 	private Individu individu;
+	@JsonIgnore
+	@OneToMany(mappedBy="compte", fetch = FetchType.LAZY)
+	private Collection<Position> positions;
 	
 	
 	public String getType() {
@@ -99,6 +107,12 @@ public  class Compte implements Serializable {
 	public void setIndividu(Individu individu) {
 		this.individu = individu;
 	}
+	public Collection<Position> getPositions() {
+		return positions;
+	}
+	public void setPositions(Collection<Position> positions) {
+		this.positions = positions;
+	}
 	public Compte() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -130,6 +144,22 @@ public  class Compte implements Serializable {
 		this.typeCompte = typeCompte;
 		this.individu = individu;
 	}
+	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+			String statutAff, String typage, String typeCompte, Individu individu, Collection<Position> positions) {
+		super();
+		this.numCompte = numCompte;
+		this.type = type;
+		this.libCompte = libCompte;
+		this.ouvert = ouvert;
+		this.lettrage = lettrage;
+		this.idCptPc = idCptPc;
+		this.statutAff = statutAff;
+		this.typage = typage;
+		this.typeCompte = typeCompte;
+		this.individu = individu;
+		this.positions = positions;
+	}
+	
 	
 	
 
