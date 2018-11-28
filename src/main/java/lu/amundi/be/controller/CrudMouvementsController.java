@@ -12,7 +12,7 @@ import lu.amundi.be.entities.Mouvements;
  *
  */
 @RestController
-@RequestMapping(value="/api/mouvement")
+@RequestMapping(value="/api/movement")
 public class CrudMouvementsController extends CrudControlller<Mouvements, String> {
 
 }
