@@ -8,7 +8,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
+/**
+ * 
+ * @author AbousyllabaNdiaye
+ * @version 1.0
+ *
+ */
 @Entity
 public class Position implements Serializable {
 

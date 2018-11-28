@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import lu.amundi.be.entities.Compte;
 
 /**
- * This interface is a repository for class Compte based on spring data
+ * This interface is a repository for class Compte based on Spring data
  * @author AbousyllabaNdiaye
  * @version 1.0
  *

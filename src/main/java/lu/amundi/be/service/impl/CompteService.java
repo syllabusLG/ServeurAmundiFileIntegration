@@ -28,25 +28,21 @@ public class CompteService implements ICrudService<Compte, Long>{
 
 	@Override
 	public List<Compte> getAll() {
-		// TODO Auto-generated method stub
 		return compteRepository.findAll();
 	}
 
 	@Override
 	public void add(Compte compte) {
-		// TODO Auto-generated method stub
 		compteRepository.save(compte);
 	}
 
 	@Override
 	public void update(Compte compte) {
-		// TODO Auto-generated method stub
 		compteRepository.save(compte);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
 		Compte compte = new Compte();
 		compte.setNumCompte(id);
 		compteRepository.delete(compte);
@@ -54,18 +50,15 @@ public class CompteService implements ICrudService<Compte, Long>{
 
 	@Override
 	public void saveAll(Iterable<Compte> iterable) {
-		// TODO Auto-generated method stub
 		compteRepository.saveAll(iterable);
 	}
 
 	@Override
 	public Optional<Compte> findOne(Long id) {
-		// TODO Auto-generated method stub
 		return compteRepository.findById(id);
 	}
 
 	public Page<Compte> search(String mc, Pageable pageable) {
-		// TODO Auto-generated method stub
 		return compteRepository.chercher(mc, pageable);
 	}
 

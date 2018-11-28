@@ -41,6 +41,9 @@ public  class Compte implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy="compte", fetch = FetchType.LAZY)
 	private Collection<Position> positions;
+	@JsonIgnore
+	@OneToMany(mappedBy="compte", fetch = FetchType.LAZY)
+	private Collection<Mouvements> mouvements;
 	
 	
 	public String getType() {
@@ -113,6 +116,13 @@ public  class Compte implements Serializable {
 	public void setPositions(Collection<Position> positions) {
 		this.positions = positions;
 	}
+	
+	public Collection<Mouvements> getMouvements() {
+		return mouvements;
+	}
+	public void setMouvements(Collection<Mouvements> mouvements) {
+		this.mouvements = mouvements;
+	}
 	public Compte() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -159,8 +169,22 @@ public  class Compte implements Serializable {
 		this.individu = individu;
 		this.positions = positions;
 	}
+	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+			String statutAff, String typage, String typeCompte, Individu individu, Collection<Position> positions,
+			Collection<Mouvements> mouvements) {
+		super();
+		this.numCompte = numCompte;
+		this.type = type;
+		this.libCompte = libCompte;
+		this.ouvert = ouvert;
+		this.lettrage = lettrage;
+		this.idCptPc = idCptPc;
+		this.statutAff = statutAff;
+		this.typage = typage;
+		this.typeCompte = typeCompte;
+		this.individu = individu;
+		this.positions = positions;
+		this.mouvements = mouvements;
+	}
 	
-	
-	
-
 }
