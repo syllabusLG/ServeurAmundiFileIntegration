@@ -16,7 +16,7 @@ import lu.amundi.be.entities.Position;
 public interface PositionRepository extends JpaRepository<Position, String> {
 	
 	@Query("select p from Position p where p.refInstrument like :x or p.pruInstrument like :x"
-			+ " or p.compte.typeCompte like :x or p.compte.libCompte like :x")
+			+ " or p.compte.numCompte like :x")
 	public Page<Position> chercher(@Param("x")String mc, Pageable pageable);
 
 }

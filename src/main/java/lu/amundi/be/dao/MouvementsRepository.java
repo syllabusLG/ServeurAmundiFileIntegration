@@ -16,6 +16,6 @@ import lu.amundi.be.entities.Mouvements;
 public interface MouvementsRepository extends JpaRepository<Mouvements, String> {
 
 	@Query("select mvt from Mouvements mvt where mvt.numMouvement like :x or mvt.sens like :x or mvt.refInstrument like :x"
-			+ " or mvt.pruInstrument like :x or mvt.compte.typeCompte like :x or mvt.compte.libCompte like :x")
+			+ " or mvt.pruInstrument like :x or mvt.nav like :x or mvt.compte.numCompte like :x")
 	public Page<Mouvements> chercher(@Param("x")String mc, Pageable pageable);
 }
