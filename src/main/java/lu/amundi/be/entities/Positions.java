@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  *
  */
 @Entity
-public class Position implements Serializable {
+public class Positions implements Serializable {
 
 	/**
 	 * 
@@ -68,7 +68,7 @@ public class Position implements Serializable {
 	public void setCompte(Compte compte) {
 		this.compte = compte;
 	}
-	public Position(String idPosition, String refInstrument, int quantiteInstrument, String pruInstrument,
+	public Positions(String idPosition, String refInstrument, int quantiteInstrument, String pruInstrument,
 			LocalDate dateUpdate, Compte compte) {
 		super();
 		this.idPosition = idPosition;
@@ -78,7 +78,7 @@ public class Position implements Serializable {
 		this.dateUpdate = dateUpdate;
 		this.compte = compte;
 	}
-	public Position() {
+	public Positions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lu.amundi.be.dao.PositionRepository;
-import lu.amundi.be.entities.Position;
+import lu.amundi.be.entities.Positions;
 import lu.amundi.be.service.ICrudService;
 
 /**
@@ -21,45 +21,45 @@ import lu.amundi.be.service.ICrudService;
  */
 @Service
 @Primary
-public class PositionService implements ICrudService<Position, String> {
+public class PositionService implements ICrudService<Positions, String> {
 	
 	@Autowired
 	private PositionRepository positionRepository;
 
 	@Override
-	public List<Position> getAll() {
+	public List<Positions> getAll() {
 		return positionRepository.findAll();
 	}
 
 	@Override
-	public void add(Position position) {
-		positionRepository.save(position);
+	public void add(Positions positions) {
+		positionRepository.save(positions);
 	}
 
 	@Override
-	public void update(Position position) {
-		positionRepository.save(position);
+	public void update(Positions positions) {
+		positionRepository.save(positions);
 	}
 
 	@Override
 	public void delete(String id) {
-		Position position = new Position();
-		position.setIdPosition(id);
-		positionRepository.delete(position);
+		Positions positions = new Positions();
+		positions.setIdPosition(id);
+		positionRepository.delete(positions);
 	}
 
 	@Override
-	public void saveAll(Iterable<Position> iterable) {
+	public void saveAll(Iterable<Positions> iterable) {
 		positionRepository.saveAll(iterable);
 	}
 
 	@Override
-	public Optional<Position> findOne(String id) {
+	public Optional<Positions> findOne(String id) {
 		return positionRepository.findById(id);
 	}
 
 	@Override
-	public Page<Position> search(String mc, Pageable pageable) {
+	public Page<Positions> search(String mc, Pageable pageable) {
 		return positionRepository.chercher(mc, pageable);
 	}
 

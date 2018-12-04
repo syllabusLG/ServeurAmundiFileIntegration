@@ -40,7 +40,7 @@ public  class Compte implements Serializable {
 	private Individu individu;
 	@JsonIgnore
 	@OneToMany(mappedBy="compte", fetch = FetchType.LAZY)
-	private Collection<Position> positions;
+	private Collection<Positions> positions;
 	@JsonIgnore
 	@OneToMany(mappedBy="compte", fetch = FetchType.LAZY)
 	private Collection<Mouvements> mouvements;
@@ -110,10 +110,10 @@ public  class Compte implements Serializable {
 	public void setIndividu(Individu individu) {
 		this.individu = individu;
 	}
-	public Collection<Position> getPositions() {
+	public Collection<Positions> getPositions() {
 		return positions;
 	}
-	public void setPositions(Collection<Position> positions) {
+	public void setPositions(Collection<Positions> positions) {
 		this.positions = positions;
 	}
 	
@@ -155,7 +155,7 @@ public  class Compte implements Serializable {
 		this.individu = individu;
 	}
 	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
-			String statutAff, String typage, String typeCompte, Individu individu, Collection<Position> positions) {
+			String statutAff, String typage, String typeCompte, Individu individu, Collection<Positions> positions) {
 		super();
 		this.numCompte = numCompte;
 		this.type = type;
@@ -170,7 +170,7 @@ public  class Compte implements Serializable {
 		this.positions = positions;
 	}
 	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
-			String statutAff, String typage, String typeCompte, Individu individu, Collection<Position> positions,
+			String statutAff, String typage, String typeCompte, Individu individu, Collection<Positions> positions,
 			Collection<Mouvements> mouvements) {
 		super();
 		this.numCompte = numCompte;
