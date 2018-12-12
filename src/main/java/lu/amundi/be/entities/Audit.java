@@ -55,6 +55,14 @@ public class Audit implements Serializable{
 	private String createUser;
 	private String updateUser;
 	private String deleteUser;
+	private String updateMouvement;
+	private String deleteMouvement;
+	private String updatePosition;
+	private String deletePosition;
+	private String uploadMovementFile;
+    private String uploadPositionFile;
+    private String exportMovementCSV;
+    private String exportPositionCSV;
 	
 	public Long getId() {
 		return id;
@@ -202,15 +210,12 @@ public class Audit implements Serializable{
 	public void setDeleteCompte(String deleteCompte) {
 		this.deleteCompte = deleteCompte;
 	}
-	
-	
 	public String getHabilitation() {
 		return habilitation;
 	}
 	public void setHabilitation(String habilitation) {
 		this.habilitation = habilitation;
 	}
-	
 	public String getCreateUser() {
 		return createUser;
 	}
@@ -229,7 +234,55 @@ public class Audit implements Serializable{
 	public void setDeleteUser(String deleteUser) {
 		this.deleteUser = deleteUser;
 	}
+	public String getUpdateMouvement() {
+		return updateMouvement;
+	}
+	public void setUpdateMouvement(String updateMouvement) {
+		this.updateMouvement = updateMouvement;
+	}
+	public String getDeleteMouvement() {
+		return deleteMouvement;
+	}
+	public void setDeleteMouvement(String deleteMouvement) {
+		this.deleteMouvement = deleteMouvement;
+	}
+	public String getUpdatePosition() {
+		return updatePosition;
+	}
+	public void setUpdatePosition(String updatePosition) {
+		this.updatePosition = updatePosition;
+	}
+	public String getDeletePosition() {
+		return deletePosition;
+	}
+	public void setDeletePosition(String deletePosition) {
+		this.deletePosition = deletePosition;
+	}
 	
+	public String getUploadMovementFile() {
+		return uploadMovementFile;
+	}
+	public void setUploadMovementFile(String uploadMovementFile) {
+		this.uploadMovementFile = uploadMovementFile;
+	}
+	public String getUploadPositionFile() {
+		return uploadPositionFile;
+	}
+	public void setUploadPositionFile(String uploadPositionFile) {
+		this.uploadPositionFile = uploadPositionFile;
+	}
+	public String getExportMovementCSV() {
+		return exportMovementCSV;
+	}
+	public void setExportMovementCSV(String exportMovementCSV) {
+		this.exportMovementCSV = exportMovementCSV;
+	}
+	public String getExportPositionCSV() {
+		return exportPositionCSV;
+	}
+	public void setExportPositionCSV(String exportPositionCSV) {
+		this.exportPositionCSV = exportPositionCSV;
+	}
 	
 	public Audit(String username, LocalDateTime loginDate, String uploadFileName, String errorFileName,
 			String reportFileName, String individuReportCSV, String salarieReportCSV, String contactReportCSV,
@@ -237,7 +290,9 @@ public class Audit implements Serializable{
 			String updateSalarie, String updateContact, String updatePayment, String updateAdresse, String updateCompte,
 			String deleteIndividu, String deleteSalarie, String deleteContact, String deletePayment,
 			String deleteAdresse, String deleteCompte, String habilitation, String createUser, String updateUser,
-			String deleteUser) {
+			String deleteUser, String updateMouvement, String deleteMouvement, String updatePosition,
+			String deletePosition, String uploadMovementFile, String uploadPositionFile, String exportMovementCSV,
+			String exportPositionCSV) {
 		super();
 		this.username = username;
 		this.loginDate = loginDate;
@@ -266,6 +321,14 @@ public class Audit implements Serializable{
 		this.createUser = createUser;
 		this.updateUser = updateUser;
 		this.deleteUser = deleteUser;
+		this.updateMouvement = updateMouvement;
+		this.deleteMouvement = deleteMouvement;
+		this.updatePosition = updatePosition;
+		this.deletePosition = deletePosition;
+		this.uploadMovementFile = uploadMovementFile;
+		this.uploadPositionFile = uploadPositionFile;
+		this.exportMovementCSV = exportMovementCSV;
+		this.exportPositionCSV = exportPositionCSV;
 	}
 	public Audit() {
 		super();
