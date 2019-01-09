@@ -29,7 +29,7 @@ public class Mouvements implements Serializable {
 	private String refInstrument;
 	private int quantiteInstrument;
 	private String nav;
-	private String pruInstrument;
+	private float pruInstrument;
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate dateCompte;
 	@JsonFormat(pattern="dd/MM/yyyy")
@@ -39,6 +39,7 @@ public class Mouvements implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="NUM_COMPTE")
 	private Compte compte;
+	private String idEntityMere;
 	
 	public String getNumMouvement() {
 		return numMouvement;
@@ -70,10 +71,10 @@ public class Mouvements implements Serializable {
 	public void setNav(String nav) {
 		this.nav = nav;
 	}
-	public String getPruInstrument() {
+	public float getPruInstrument() {
 		return pruInstrument;
 	}
-	public void setPruInstrument(String pruInstrument) {
+	public void setPruInstrument(float pruInstrument) {
 		this.pruInstrument = pruInstrument;
 	}
 	public LocalDate getDateCompte() {
@@ -100,8 +101,14 @@ public class Mouvements implements Serializable {
 	public void setCompte(Compte compte) {
 		this.compte = compte;
 	}
+	public String getIdEntityMere() {
+		return idEntityMere;
+	}
+	public void setIdEntityMere(String idEntityMere) {
+		this.idEntityMere = idEntityMere;
+	}
 	public Mouvements(String numMouvement, String sens, String refInstrument, int quantiteInstrument, String nav,
-			String pruInstrument, LocalDate dateCompte, LocalDate dateValeur, LocalDate dateOperation, Compte compte) {
+			float pruInstrument, LocalDate dateCompte, LocalDate dateValeur, LocalDate dateOperation, Compte compte, String idEntityMere) {
 		super();
 		this.numMouvement = numMouvement;
 		this.sens = sens;
@@ -113,6 +120,7 @@ public class Mouvements implements Serializable {
 		this.dateValeur = dateValeur;
 		this.dateOperation = dateOperation;
 		this.compte = compte;
+		this.idEntityMere = idEntityMere;
 	}
 	public Mouvements() {
 		super();

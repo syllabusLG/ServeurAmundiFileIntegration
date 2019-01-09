@@ -7,9 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
+import lu.amundi.be.dao.CompteRepository;
 import lu.amundi.be.dao.RoleRepository;
 import lu.amundi.be.dao.UserRepository;
+import lu.amundi.be.entities.Compte;
 import lu.amundi.be.entities.Individu;
 import lu.amundi.be.entities.Role;
 import lu.amundi.be.entities.Salarie;
@@ -37,6 +38,8 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 	RoleRepository roleRepository;
 	@Autowired
 	UserRepository userRepository;
+	/*@Autowired
+	CompteRepository compteRepository;*/
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ServeurAmundiFileIntegrationApplication.class, args);
@@ -101,6 +104,14 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 		admin.setRoles(Arrays.asList(roleUser, roleAdmin, roleIndividu, roleSalarie, 
 				roleAdresse, rolePayment, roleDashboard, roleCompte, roleContact, roleAudit));
 		userRepository.save(admin);
+		
+		/*Compte compte = compteRepository.getOne((long) 11111);
+		if(compte != null) {
+			compte.getPositions().forEach(p ->{
+				System.out.println("-----------Position: "+ p.getRefInstrument());
+			});
+		}*/
+		
 		
 	}
 	   

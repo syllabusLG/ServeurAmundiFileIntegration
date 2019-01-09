@@ -25,7 +25,7 @@ public class Positions implements Serializable {
 	private String idPosition;
 	private String refInstrument;
 	private int quantiteInstrument;
-	private String pruInstrument;
+	private float pruInstrument;
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate dateUpdate;
 	@ManyToOne
@@ -50,10 +50,10 @@ public class Positions implements Serializable {
 	public void setQuantiteInstrument(int quantiteInstrument) {
 		this.quantiteInstrument = quantiteInstrument;
 	}
-	public String getPruInstrument() {
+	public float getPruInstrument() {
 		return pruInstrument;
 	}
-	public void setPruInstrument(String pruInstrument) {
+	public void setPruInstrument(float pruInstrument) {
 		this.pruInstrument = pruInstrument;
 	}
 	public LocalDate getDateUpdate() {
@@ -68,7 +68,7 @@ public class Positions implements Serializable {
 	public void setCompte(Compte compte) {
 		this.compte = compte;
 	}
-	public Positions(String idPosition, String refInstrument, int quantiteInstrument, String pruInstrument,
+	public Positions(String idPosition, String refInstrument, int quantiteInstrument, float pruInstrument,
 			LocalDate dateUpdate, Compte compte) {
 		super();
 		this.idPosition = idPosition;
