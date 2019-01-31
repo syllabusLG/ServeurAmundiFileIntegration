@@ -1,5 +1,7 @@
 package lu.amundi.be.dao;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,5 +20,8 @@ public interface PositionRepository extends JpaRepository<Positions, String> {
 	@Query("select p from Positions p where p.refInstrument like :x or p.pruInstrument like :x"
 			+ " or p.compte.numCompte like :x")
 	public Page<Positions> chercher(@Param("x")String mc, Pageable pageable);
+	
+	@Query("select p from Positions p where p.idPosition like '%my_default%'")
+	public List<Positions> defaultPositions();
 
 }

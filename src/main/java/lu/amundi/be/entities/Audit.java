@@ -30,6 +30,8 @@ public class Audit implements Serializable{
 	private String username;
 	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime loginDate;
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
+	private LocalDateTime dateAction;
 	private String uploadFileName;
 	private String errorFileName;
 	private String reportFileName;
@@ -63,6 +65,7 @@ public class Audit implements Serializable{
     private String uploadPositionFile;
     private String exportMovementCSV;
     private String exportPositionCSV;
+    private String operations;
 	
 	public Long getId() {
 		return id;
@@ -83,6 +86,13 @@ public class Audit implements Serializable{
 	}
 	public void setLoginDate(LocalDateTime loginDate) {
 		this.loginDate = loginDate;
+	}
+	
+	public LocalDateTime getDateAction() {
+		return dateAction;
+	}
+	public void setDateAction(LocalDateTime dateAction) {
+		this.dateAction = dateAction;
 	}
 	public String getUploadFileName() {
 		return uploadFileName;
@@ -284,7 +294,13 @@ public class Audit implements Serializable{
 		this.exportPositionCSV = exportPositionCSV;
 	}
 	
-	public Audit(String username, LocalDateTime loginDate, String uploadFileName, String errorFileName,
+	public String getOperations() {
+		return operations;
+	}
+	public void setOperations(String operations) {
+		this.operations = operations;
+	}
+	public Audit(String username, LocalDateTime loginDate, LocalDateTime dateAction, String uploadFileName, String errorFileName,
 			String reportFileName, String individuReportCSV, String salarieReportCSV, String contactReportCSV,
 			String paymentReportCSV, String adresseReportCSV, String compteReportCSV, String updateIndividu,
 			String updateSalarie, String updateContact, String updatePayment, String updateAdresse, String updateCompte,
@@ -292,10 +308,11 @@ public class Audit implements Serializable{
 			String deleteAdresse, String deleteCompte, String habilitation, String createUser, String updateUser,
 			String deleteUser, String updateMouvement, String deleteMouvement, String updatePosition,
 			String deletePosition, String uploadMovementFile, String uploadPositionFile, String exportMovementCSV,
-			String exportPositionCSV) {
+			String exportPositionCSV, String operations) {
 		super();
 		this.username = username;
 		this.loginDate = loginDate;
+		this.dateAction = dateAction;
 		this.uploadFileName = uploadFileName;
 		this.errorFileName = errorFileName;
 		this.reportFileName = reportFileName;
@@ -329,6 +346,7 @@ public class Audit implements Serializable{
 		this.uploadPositionFile = uploadPositionFile;
 		this.exportMovementCSV = exportMovementCSV;
 		this.exportPositionCSV = exportPositionCSV;
+		this.operations = operations;
 	}
 	public Audit() {
 		super();

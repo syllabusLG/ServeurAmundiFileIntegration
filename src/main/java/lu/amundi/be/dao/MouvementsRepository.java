@@ -25,4 +25,30 @@ public interface MouvementsRepository extends JpaRepository<Mouvements, String> 
 			+ "or mvt.dateValeur between :x and :y "
 			+ "or mvt.dateOperation between :x and :y")
 	public Page<Mouvements> getMouvementsByDate(@Param("x")LocalDate dateBefore, @Param("y")LocalDate dateAfter, Pageable pageable); 
+	
+	@Query("select mvt from Mouvements mvt where mvt.compte.numCompte like :x and "
+			+ "(mvt.dateCompte between :y and :z "
+			+ "or mvt.dateValeur between :y and :z "
+			+ "or mvt.dateOperation between :y and :z)")
+	public Page<Mouvements> getMouvementsByCompteAndDate(@Param("x")long numCompte, 
+														@Param("y")LocalDate dateBefore, 
+														@Param("z")LocalDate dateAfter, Pageable pageable);
+	
+	@Query("select mvt from Mouvements mvt where mvt.compte.numCompte like :x and "
+			+ "(mvt.dateCompte between :y and :z)")
+	public Page<Mouvements> getMouvementsByCompteAndDateCompte(@Param("x")long numCompte, 
+														@Param("y")LocalDate dateBefore, 
+														@Param("z")LocalDate dateAfter, Pageable pageable);
+	
+	@Query("select mvt from Mouvements mvt where mvt.compte.numCompte like :x and "
+			+ "(mvt.dateValeur between :y and :z)")
+	public Page<Mouvements> getMouvementsByCompteAndDateValeur(@Param("x")long numCompte, 
+														@Param("y")LocalDate dateBefore, 
+														@Param("z")LocalDate dateAfter, Pageable pageable);
+	
+	@Query("select mvt from Mouvements mvt where mvt.compte.numCompte like :x and "
+			+ "(mvt.dateOperation between :y and :z)")
+	public Page<Mouvements> getMouvementsByCompteAndDateOperation(@Param("x")long numCompte, 
+														@Param("y")LocalDate dateBefore, 
+														@Param("z")LocalDate dateAfter, Pageable pageable);
 }

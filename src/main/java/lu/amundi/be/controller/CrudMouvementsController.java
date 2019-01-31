@@ -29,12 +29,26 @@ public class CrudMouvementsController extends CrudControlller<Mouvements, String
 	
 	@RequestMapping(value="/movementsByDate", method = RequestMethod.GET)
 	public Page<Mouvements> movementsByDate(
+			@RequestParam(name= "numCompte", defaultValue="")long numCompte,
 			@RequestParam(name= "dateBefore", defaultValue="")String dateBeforeString, 
 			@RequestParam(name= "dateAfter", defaultValue="")String dateAfterString, 
 			@RequestParam(name= "page", defaultValue="0")int page, 
-			@RequestParam(name= "size", defaultValue="5")int size){
+			@RequestParam(name= "size", defaultValue="5")int size,
+			@RequestParam(name= "filter", defaultValue="")String filter){
 		LocalDate dateBefore = LocalDate.parse(dateBeforeString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		LocalDate dateAfter = LocalDate.parse(dateAfterString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-		return mouvementsRepository.getMouvementsByDate(dateBefore, dateAfter, new PageRequest(page, size));
+
+		if(filter.equalsIgnoreCase("dateValeur")) {
+			
+			return mouvementsRepository.getMouvementsByCompteAndDateValeur(numCompte, dateBefore, dateAfter, new PageRequest(page, size));
+		}
+		else if(filter.equalsIgnoreCase("dateOperation")) {
+			
+			return mouvementsRepository.getMouvementsByCompteAndDateOperation(numCompte, dateBefore, dateAfter, new PageRequest(page, size));
+		}
+		else{
+			
+			return mouvementsRepository.getMouvementsByCompteAndDateCompte(numCompte, dateBefore, dateAfter, new PageRequest(page, size));
+		}
 	}
 }

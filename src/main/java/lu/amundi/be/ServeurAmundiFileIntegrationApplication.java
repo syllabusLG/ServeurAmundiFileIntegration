@@ -38,8 +38,7 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 	RoleRepository roleRepository;
 	@Autowired
 	UserRepository userRepository;
-	/*@Autowired
-	CompteRepository compteRepository;*/
+
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ServeurAmundiFileIntegrationApplication.class, args);
@@ -48,7 +47,6 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
 		Individu individu = new Individu();
 		Individu individu2 = new Individu();
 		individu.setNui("123DF456");
@@ -105,12 +103,6 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 				roleAdresse, rolePayment, roleDashboard, roleCompte, roleContact, roleAudit));
 		userRepository.save(admin);
 		
-		/*Compte compte = compteRepository.getOne((long) 11111);
-		if(compte != null) {
-			compte.getPositions().forEach(p ->{
-				System.out.println("-----------Position: "+ p.getRefInstrument());
-			});
-		}*/
 		
 		
 	}

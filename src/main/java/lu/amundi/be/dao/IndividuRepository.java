@@ -1,5 +1,7 @@
 package lu.amundi.be.dao;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +19,6 @@ public interface IndividuRepository extends JpaRepository<Individu, String> {
 
 	@Query("select ind from Individu ind where ind.nui like :x or ind.lastName like :x or ind.firstName like :x")
 	public Page<Individu> chercher(@Param("x")String mc, Pageable pageable);
+	
+	public List<Individu> findIndividuByLastName(String lastName);
 }
