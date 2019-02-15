@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
- * 
+ * Entity Movment
  * @author AbousyllabaNdiaye
  * @version 1.0
  *
