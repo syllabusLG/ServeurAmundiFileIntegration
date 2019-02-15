@@ -3,9 +3,12 @@ package lu.amundi.be.entities;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 /**
@@ -22,32 +25,36 @@ public class Positions implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	private String idPosition;
-	private String refInstrument;
-	private int quantiteInstrument;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idPosition;
+	private float quantiteInstrument;
 	private float pruInstrument;
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate dateUpdate;
+	@OneToOne
+	@JoinColumn(name="REF_INSTRUMENT")
+	private Instruments instruments;
 	@ManyToOne
 	@JoinColumn(name="NUM_COMPTE")
 	private Compte compte;
 	
-	public String getIdPosition() {
+	public Long getIdPosition() {
 		return idPosition;
 	}
-	public void setIdPosition(String idPosition) {
+	public void setIdPosition(Long idPosition) {
 		this.idPosition = idPosition;
 	}
-	public String getRefInstrument() {
-		return refInstrument;
+	
+	public Instruments getInstruments() {
+		return instruments;
 	}
-	public void setRefInstrument(String refInstrument) {
-		this.refInstrument = refInstrument;
+	public void setInstruments(Instruments instruments) {
+		this.instruments = instruments;
 	}
-	public int getQuantiteInstrument() {
+	public float getQuantiteInstrument() {
 		return quantiteInstrument;
 	}
-	public void setQuantiteInstrument(int quantiteInstrument) {
+	public void setQuantiteInstrument(float quantiteInstrument) {
 		this.quantiteInstrument = quantiteInstrument;
 	}
 	public float getPruInstrument() {
@@ -68,11 +75,11 @@ public class Positions implements Serializable {
 	public void setCompte(Compte compte) {
 		this.compte = compte;
 	}
-	public Positions(String idPosition, String refInstrument, int quantiteInstrument, float pruInstrument,
+	public Positions(Long idPosition, Instruments instruments, float quantiteInstrument, float pruInstrument,
 			LocalDate dateUpdate, Compte compte) {
 		super();
 		this.idPosition = idPosition;
-		this.refInstrument = refInstrument;
+		this.instruments = instruments;
 		this.quantiteInstrument = quantiteInstrument;
 		this.pruInstrument = pruInstrument;
 		this.dateUpdate = dateUpdate;
@@ -80,7 +87,6 @@ public class Positions implements Serializable {
 	}
 	public Positions() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 

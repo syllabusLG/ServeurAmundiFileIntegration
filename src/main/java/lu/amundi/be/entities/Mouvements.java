@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -26,9 +27,8 @@ public class Mouvements implements Serializable {
 	@Id
 	private String numMouvement;
 	private String sens;
-	private String refInstrument;
-	private int quantiteInstrument;
-	private String nav;
+	private float quantiteInstrument;
+	private float nav;
 	private float pruInstrument;
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate dateCompte;
@@ -36,6 +36,12 @@ public class Mouvements implements Serializable {
 	private LocalDate dateValeur;
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate dateOperation;
+	@OneToOne
+	@JoinColumn(name="REF_INSTRUMENT")
+	private Instruments instruments;
+	@OneToOne
+	@JoinColumn(name="ID_POSITION")
+	private Positions position;
 	@ManyToOne
 	@JoinColumn(name="NUM_COMPTE")
 	private Compte compte;
@@ -53,22 +59,23 @@ public class Mouvements implements Serializable {
 	public void setSens(String sens) {
 		this.sens = sens;
 	}
-	public String getRefInstrument() {
-		return refInstrument;
+	
+	public Instruments getInstruments() {
+		return instruments;
 	}
-	public void setRefInstrument(String refInstrument) {
-		this.refInstrument = refInstrument;
+	public void setInstruments(Instruments instruments) {
+		this.instruments = instruments;
 	}
-	public int getQuantiteInstrument() {
+	public float getQuantiteInstrument() {
 		return quantiteInstrument;
 	}
-	public void setQuantiteInstrument(int quantiteInstrument) {
+	public void setQuantiteInstrument(float quantiteInstrument) {
 		this.quantiteInstrument = quantiteInstrument;
 	}
-	public String getNav() {
+	public float getNav() {
 		return nav;
 	}
-	public void setNav(String nav) {
+	public void setNav(float nav) {
 		this.nav = nav;
 	}
 	public float getPruInstrument() {
@@ -101,18 +108,25 @@ public class Mouvements implements Serializable {
 	public void setCompte(Compte compte) {
 		this.compte = compte;
 	}
+	
+	public Positions getPosition() {
+		return position;
+	}
+	public void setPosition(Positions position) {
+		this.position = position;
+	}
 	public String getIdEntityMere() {
 		return idEntityMere;
 	}
 	public void setIdEntityMere(String idEntityMere) {
 		this.idEntityMere = idEntityMere;
 	}
-	public Mouvements(String numMouvement, String sens, String refInstrument, int quantiteInstrument, String nav,
-			float pruInstrument, LocalDate dateCompte, LocalDate dateValeur, LocalDate dateOperation, Compte compte, String idEntityMere) {
+	public Mouvements(String numMouvement, String sens, Instruments instruments, float quantiteInstrument, float nav,
+			float pruInstrument, LocalDate dateCompte, LocalDate dateValeur, LocalDate dateOperation, Compte compte, Positions position, String idEntityMere) {
 		super();
 		this.numMouvement = numMouvement;
 		this.sens = sens;
-		this.refInstrument = refInstrument;
+		this.instruments = instruments;
 		this.quantiteInstrument = quantiteInstrument;
 		this.nav = nav;
 		this.pruInstrument = pruInstrument;
@@ -120,11 +134,11 @@ public class Mouvements implements Serializable {
 		this.dateValeur = dateValeur;
 		this.dateOperation = dateOperation;
 		this.compte = compte;
+		this.position = position;
 		this.idEntityMere = idEntityMere;
 	}
 	public Mouvements() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

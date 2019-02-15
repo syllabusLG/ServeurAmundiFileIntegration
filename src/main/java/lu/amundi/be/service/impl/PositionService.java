@@ -21,7 +21,7 @@ import lu.amundi.be.service.ICrudService;
  */
 @Service
 @Primary
-public class PositionService implements ICrudService<Positions, String> {
+public class PositionService implements ICrudService<Positions, Long> {
 	
 	@Autowired
 	private PositionRepository positionRepository;
@@ -42,7 +42,7 @@ public class PositionService implements ICrudService<Positions, String> {
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(Long id) {
 		Positions positions = new Positions();
 		positions.setIdPosition(id);
 		positionRepository.delete(positions);
@@ -54,7 +54,7 @@ public class PositionService implements ICrudService<Positions, String> {
 	}
 
 	@Override
-	public Optional<Positions> findOne(String id) {
+	public Optional<Positions> findOne(Long id) {
 		return positionRepository.findById(id);
 	}
 

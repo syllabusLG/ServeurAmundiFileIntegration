@@ -1,7 +1,5 @@
 package lu.amundi.be.dao;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,13 +13,16 @@ import lu.amundi.be.entities.Positions;
  * @version 1.0
  *
  */
-public interface PositionRepository extends JpaRepository<Positions, String> {
+public interface PositionRepository extends JpaRepository<Positions, Long> {
 	
-	@Query("select p from Positions p where p.refInstrument like :x or p.pruInstrument like :x"
+	@Query("select p from Positions p where p.instruments.code like :x or p.pruInstrument like :x"
 			+ " or p.compte.numCompte like :x")
 	public Page<Positions> chercher(@Param("x")String mc, Pageable pageable);
 	
-	@Query("select p from Positions p where p.idPosition like '%my_default%'")
-	public List<Positions> defaultPositions();
+	/*@Query("select p from Positions p where p.idPosition like '%my_default%'")
+	public List<Positions> defaultPositions();*/
+	
+	@Query("select p from Positions p where p.instruments.code like :x")
+	public Positions findPositionByCodeInstrument(@Param("x")String code);
 
 }
