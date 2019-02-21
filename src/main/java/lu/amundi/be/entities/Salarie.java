@@ -28,13 +28,13 @@ public class Salarie implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@NotEmpty
-	@Size(min=0, max=20)
+	
 	private String employeeId;
 	@Size(min=0, max=2)
 	private String employeeStatus;
-	@Size(min=0, max=10)
+	
 	private String company_CD;
-	@Size(min=0, max=50)
+	
 	private String spc;
 
 	private String level_1;

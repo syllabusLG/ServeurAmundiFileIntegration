@@ -55,13 +55,13 @@ public class ServeurAmundiFileIntegrationApplication implements CommandLineRunne
 		individu2.setNui("12323456");
 		individu2.setFirstName("Aida");
 		individu2.setLastName("Ndiaye");
-		service1.add(individu);
-		service1.add(individu2);
+		//service1.add(individu);
+		//service1.add(individu2);
 		Salarie salarie = new Salarie();
 		salarie.setIndividu(individu);
 		salarie.setCompany_CD("FD");
 		salarie.setEmployeeId("12");
-		service2.add(salarie);
+		//service2.add(salarie);
 		service1.getAll().forEach(i -> {
 			System.out.println(i.getFirstName());
 		});
