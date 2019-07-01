@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * This class is used to give all access to the requests coming from the client application 
- * 
  * @author AbousyllabaNdiaye
  * @version 1.0
  *
