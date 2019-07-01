@@ -26,8 +26,8 @@ public class Payment implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	@Id
+	private String id;
 	private String bic;
 	private String iban;
 	private String otherPayment;
@@ -41,6 +41,12 @@ public class Payment implements Serializable {
 	private Individu individu;
 	
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getIban() {
 		return iban;
 	}
@@ -99,9 +105,10 @@ public class Payment implements Serializable {
 	public Payment() {
 		super();
 	}
-	public Payment(String bic, String iban, String otherPayment, String iso, String type, String statut,
+	public Payment(String id, String bic, String iban, String otherPayment, String iso, String type, String statut,
 			String utilisation, String origin, Individu individu) {
 		super();
+		this.id = id;
 		this.bic = bic;
 		this.iban = iban;
 		this.otherPayment = otherPayment;

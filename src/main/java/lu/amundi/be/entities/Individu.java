@@ -31,13 +31,11 @@ public class Individu implements Serializable {
 	private String nui;
 	private int civility; 
 	private String lastName;
-	private String useName;
 	private String firstName;
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate birthDate;
 	private String birthPlace;
 	private String birthCountry;
-	private String birthCountryLib;
 	private String nationality;
 	@JsonIgnore
 	@OneToMany(mappedBy="individu", fetch = FetchType.LAZY)
@@ -70,12 +68,8 @@ public class Individu implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getUseName() {
-		return useName;
-	}
-	public void setUseName(String useName) {
-		this.useName = useName;
-	}
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -104,12 +98,6 @@ public class Individu implements Serializable {
 		this.birthCountry = birthCountry;
 	}
 	
-	public String getBirthCountryLib() {
-		return birthCountryLib;
-	}
-	public void setBirthCountryLib(String birthCountryLib) {
-		this.birthCountryLib = birthCountryLib;
-	}
 	public String getNationality() {
 		return nationality;
 	}
@@ -169,46 +157,40 @@ public class Individu implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Individu(String nui, int civility, String lastName, String useName, String firstName, LocalDate birthDate,
-			String birthPlace, String birthCountry, String birthCountryLib, String nationality) {
+	public Individu(String nui, int civility, String lastName, String firstName, LocalDate birthDate,
+			String birthPlace, String birthCountry, String nationality) {
 		super();
 		this.nui = nui;
 		this.civility = civility;
 		this.lastName = lastName;
-		this.useName = useName;
 		this.firstName = firstName;
 		this.birthDate = birthDate;
 		this.birthPlace = birthPlace;
 		this.birthCountry = birthCountry;
-		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 	}
-	public Individu(int civility, String lastName, String useName, String firstName, LocalDate birthDate, String birthPlace,
-			String birthCountry, String birthCountryLib, String nationality) {
+	public Individu(int civility, String lastName, String firstName, LocalDate birthDate, String birthPlace,
+			String birthCountry, String nationality) {
 		super();
 		this.civility = civility;
 		this.lastName = lastName;
-		this.useName = useName;
 		this.firstName = firstName;
 		this.birthDate = birthDate;
 		this.birthPlace = birthPlace;
 		this.birthCountry = birthCountry;
-		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 	}
-	public Individu(String nui, int civility, String lastName, String useName, String firstName, LocalDate birthDate,
-			String birthPlace, String birthCountry, String birthCountryLib, String nationality, Collection<Compte> comptes,
+	public Individu(String nui, int civility, String lastName, String firstName, LocalDate birthDate,
+			String birthPlace, String birthCountry, String nationality, Collection<Compte> comptes,
 			Collection<Adresse> adresses, Collection<Contact> contacts, Collection<Payment> payment) {
 		super();
 		this.nui = nui;
 		this.civility = civility;
 		this.lastName = lastName;
-		this.useName = useName;
 		this.firstName = firstName;
 		this.birthDate = birthDate;
 		this.birthPlace = birthPlace;
 		this.birthCountry = birthCountry;
-		this.birthCountryLib = birthCountryLib;
 		this.nationality = nationality;
 		this.comptes = comptes;
 		this.adresses = adresses;

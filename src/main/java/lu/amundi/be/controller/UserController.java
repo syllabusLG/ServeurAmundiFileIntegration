@@ -50,7 +50,7 @@ public class UserController {
 	@RequestMapping(value="/api/user", method = RequestMethod.PUT)
 	public void update(@RequestBody User user) {
 		if(user.getChangePassword().equals("TRUE")) {
-			user.setPassword(EncodePassword.getPassword(user.getPassword()));
+			user.setPassword(EncodePassword.generateCrypting(user.getPassword()));
 		}
 		
 		userRepository.save(user);

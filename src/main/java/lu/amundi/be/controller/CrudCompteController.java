@@ -19,7 +19,7 @@ import lu.amundi.be.entities.Compte;
  */
 @RestController
 @RequestMapping(value="/api/compte")
-public class CrudCompteController extends CrudControlller<Compte, Long>{
+public class CrudCompteController extends CrudControlller<Compte, String>{
 
 	@Autowired
 	private CompteRepository compteRepository;

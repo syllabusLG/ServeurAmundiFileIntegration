@@ -29,7 +29,7 @@ public class CrudMouvementsController extends CrudControlller<Mouvements, String
 	
 	@RequestMapping(value="/movementsByDate", method = RequestMethod.GET)
 	public Page<Mouvements> movementsByDate(
-			@RequestParam(name= "numCompte", defaultValue="")long numCompte,
+			@RequestParam(name= "numCompte", defaultValue="")String numCompte,
 			@RequestParam(name= "dateBefore", defaultValue="")String dateBeforeString, 
 			@RequestParam(name= "dateAfter", defaultValue="")String dateAfterString, 
 			@RequestParam(name= "page", defaultValue="0")int page, 

@@ -34,41 +34,13 @@ public class Salarie implements Serializable {
 	private String employeeStatus;
 	
 	private String company_CD;
-	
-	private String spc;
 
-	private String level_1;
-	
-	private String level_2;
-
-	private String level_3;
-
-	private String level_4;
-
-	private String level_5;
-	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate hireDate;
 	//@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate departDate;
 	//@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private LocalDate lastHireDate;
-	//@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private LocalDate lastDepartDate;
-	@Size(min=0, max=15)
-	private String branch_CD;
-	@Size(min=0, max=6)
-	private String statut; 
-	@Size(min=0, max=2)
-	private String vip;
-	@Size(min=0, max=2)
-	private String mySensitive;
-	//@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private LocalDate dateEndSensitive;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_IND")
 	private Individu individu;
@@ -91,42 +63,7 @@ public class Salarie implements Serializable {
 	public void setCompany_CD(String company_CD) {
 		this.company_CD = company_CD;
 	}
-	public String getSpc() {
-		return spc;
-	}
-	public void setSpc(String spc) {
-		this.spc = spc;
-	}
-	public String getLevel_1() {
-		return level_1;
-	}
-	public void setLevel_1(String level_1) {
-		this.level_1 = level_1;
-	}
-	public String getLevel_2() {
-		return level_2;
-	}
-	public void setLevel_2(String level_2) {
-		this.level_2 = level_2;
-	}
-	public String getLevel_3() {
-		return level_3;
-	}
-	public void setLevel_3(String level_3) {
-		this.level_3 = level_3;
-	}
-	public String getLevel_4() {
-		return level_4;
-	}
-	public void setLevel_4(String level_4) {
-		this.level_4 = level_4;
-	}
-	public String getLevel_5() {
-		return level_5;
-	}
-	public void setLevel_5(String level_5) {
-		this.level_5 = level_5;
-	}
+	
 	public LocalDate getHireDate() {
 		return hireDate;
 	}
@@ -138,50 +75,6 @@ public class Salarie implements Serializable {
 	}
 	public void setDepartDate(LocalDate departDate) {
 		this.departDate = departDate;
-	}
-	public LocalDate getLastHireDate() {
-		return lastHireDate;
-	}
-	public void setLastHireDate(LocalDate lastHireDate) {
-		this.lastHireDate = lastHireDate;
-	}
-	public LocalDate getLastDepartDate() {
-		return lastDepartDate;
-	}
-	public void setLastDepartDate(LocalDate lastDepartDate) {
-		this.lastDepartDate = lastDepartDate;
-	}
-	public String getBranch_CD() {
-		return branch_CD;
-	}
-	public void setBranch_CD(String branch_CD) {
-		this.branch_CD = branch_CD;
-	}
-
-	public String getStatut() {
-		return statut;
-	}
-	public void setStatut(String statut) {
-		this.statut = statut;
-	}
-	public String getVip() {
-		return vip;
-	}
-	public void setVip(String vip) {
-		this.vip = vip;
-	}
-	
-	public String getMySensitive() {
-		return mySensitive;
-	}
-	public void setMySensitive(String mySensitive) {
-		this.mySensitive = mySensitive;
-	}
-	public LocalDate getDateEndSensitive() {
-		return dateEndSensitive;
-	}
-	public void setDateEndSensitive(LocalDate dateEndSensitive) {
-		this.dateEndSensitive = dateEndSensitive;
 	}
 	
 	public Individu getIndividu() {
@@ -196,36 +89,18 @@ public class Salarie implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Salarie(@NotEmpty @Size(min = 2, max = 20) String employeeId, @Size(min = 1, max = 2) String employeeStatus,
-			@Size(min = 2, max = 10) String company_CD, @Size(min = 2, max = 50) String spc,
-			@Size(min = 2, max = 50) String level_1, @Size(min = 2, max = 50) String level_2,
-			@Size(min = 2, max = 50) String level_3, @Size(min = 2, max = 50) String level_4,
-			@Size(min = 2, max = 50) String level_5, LocalDate hireDate, LocalDate departDate, LocalDate lastHireDate,
-			LocalDate lastDepartDate, @Size(min = 2, max = 15) String branch_CD, @Size(min = 1, max = 6) String statut,
-			@Size(min = 1, max = 2) String vip, @Size(min = 1, max = 2) String mySensitive, LocalDate dateEndSensitive,
-			Individu individu) {
+	
+	
+	public Salarie(@NotEmpty String employeeId, @Size(min = 0, max = 2) String employeeStatus, String company_CD,
+			LocalDate hireDate, LocalDate departDate, Individu individu) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeStatus = employeeStatus;
 		this.company_CD = company_CD;
-		this.spc = spc;
-		this.level_1 = level_1;
-		this.level_2 = level_2;
-		this.level_3 = level_3;
-		this.level_4 = level_4;
-		this.level_5 = level_5;
 		this.hireDate = hireDate;
 		this.departDate = departDate;
-		this.lastHireDate = lastHireDate;
-		this.lastDepartDate = lastDepartDate;
-		this.branch_CD = branch_CD;
-		this.statut = statut;
-		this.vip = vip;
-		this.mySensitive = mySensitive;
-		this.dateEndSensitive = dateEndSensitive;
 		this.individu = individu;
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

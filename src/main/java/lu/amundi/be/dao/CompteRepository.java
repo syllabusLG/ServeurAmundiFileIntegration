@@ -17,7 +17,7 @@ import lu.amundi.be.entities.Individu;
  * @version 1.0
  *
  */
-public interface CompteRepository extends JpaRepository<Compte, Long> {
+public interface CompteRepository extends JpaRepository<Compte, String> {
 	
 	@Query("select cpte from Compte cpte where cpte.typeCompte like :x or cpte.libCompte like :x "
 			+ "or cpte.individu.lastName like :x or cpte.individu.firstName like :x")

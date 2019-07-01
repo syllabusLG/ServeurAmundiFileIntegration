@@ -23,7 +23,9 @@ public class CrudPositionController extends CrudControlller<Positions, Long> {
 	private PositionRepository positionRepository;
 	
 	@RequestMapping(value="/byCode", method = RequestMethod.GET)
-	public Positions getPositionByCodeInstrument(@RequestParam(name="code", defaultValue="")String code) {
-		return positionRepository.findPositionByCodeInstrument(code);
+	public Positions getPositionByCodeInstrumentAndCompte(
+			@RequestParam(name="codeInstrument", defaultValue="")String codeInstrument, 
+			@RequestParam(name="codeCompte", defaultValue="")String codeCompte) {
+		return positionRepository.findPositionByCodeInstrumentAndCompte(codeInstrument, codeCompte);
 	}
 }

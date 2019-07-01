@@ -98,7 +98,7 @@ public class CrudControlller<T, ID> {
 	public Page<T> search(
 			@RequestParam(name="mc", defaultValue="")String mc,
 			@RequestParam(name="page", defaultValue="0")int page,
-			@RequestParam(name="size", defaultValue="5")int size){
+			@RequestParam(name="size", defaultValue="20")int size){
 		return service.search("%"+mc+"%", new PageRequest(page, size));
 	}
 

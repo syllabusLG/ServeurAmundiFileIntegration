@@ -21,7 +21,7 @@ import lu.amundi.be.service.ICrudService;
  */
 @Service
 @Primary
-public class CompteService implements ICrudService<Compte, Long>{
+public class CompteService implements ICrudService<Compte, String>{
 	
 	@Autowired
 	private CompteRepository compteRepository;
@@ -42,7 +42,7 @@ public class CompteService implements ICrudService<Compte, Long>{
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(String id) {
 		Compte compte = new Compte();
 		compte.setNumCompte(id);
 		compteRepository.delete(compte);
@@ -54,7 +54,7 @@ public class CompteService implements ICrudService<Compte, Long>{
 	}
 
 	@Override
-	public Optional<Compte> findOne(Long id) {
+	public Optional<Compte> findOne(String id) {
 		return compteRepository.findById(id);
 	}
 

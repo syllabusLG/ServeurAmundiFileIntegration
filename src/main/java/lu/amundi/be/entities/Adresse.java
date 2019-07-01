@@ -28,7 +28,7 @@ public class Adresse implements Serializable {
 	
 	@Id
 	private String id;
-	private int numberStreet;
+	private String numberStreet;
 	private String street;
 	private String additionalAdress_1;
 	private String additionalAdress_2;
@@ -50,7 +50,7 @@ public class Adresse implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getNumberStreet() {
+	public String getNumberStreet() {
 		return numberStreet;
 	}
 
@@ -121,7 +121,7 @@ public class Adresse implements Serializable {
 	public void setTypeAdresse(String typeAdresse) {
 		this.typeAdresse = typeAdresse;
 	}
-	public void setNumberStreet(int numberStreet) {
+	public void setNumberStreet(String numberStreet) {
 		this.numberStreet = numberStreet;
 	}
 	public Individu getIndividu() {
@@ -131,7 +131,7 @@ public class Adresse implements Serializable {
 		this.individu = individu;
 	}
 	
-	public Adresse(String id, int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
+	public Adresse(String id, String numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
 			String additionalAdress_3, String codePostal, String city, String country, String country_lib,
 			String resident, String nif, String typeAdresse) {
 		super();
@@ -150,7 +150,7 @@ public class Adresse implements Serializable {
 		this.typeAdresse = typeAdresse;
 	}
 	
-	public Adresse(String id, int numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
+	public Adresse(String id, String numberStreet, String street, String additionalAdress_1, String additionalAdress_2,
 			String additionalAdress_3, String codePostal, String city, String country, String country_lib,
 			String resident, String nif, String typeAdresse, Individu individu) {
 		super();

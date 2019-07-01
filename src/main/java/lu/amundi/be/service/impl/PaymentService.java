@@ -48,7 +48,7 @@ public class PaymentService implements ICrudService<Payment, String>{
 	public void delete(String id) {
 		// TODO Auto-generated method stub
 		Payment payment = new Payment();
-		payment.setBic(id);
+		payment.setId(id);
 		paymentRepository.delete(payment);
 	}
 

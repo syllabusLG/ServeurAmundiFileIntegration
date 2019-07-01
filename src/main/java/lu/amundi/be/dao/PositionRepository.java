@@ -22,7 +22,7 @@ public interface PositionRepository extends JpaRepository<Positions, Long> {
 	/*@Query("select p from Positions p where p.idPosition like '%my_default%'")
 	public List<Positions> defaultPositions();*/
 	
-	@Query("select p from Positions p where p.instruments.code like :x")
-	public Positions findPositionByCodeInstrument(@Param("x")String code);
+	@Query("select p from Positions p where p.instruments.code like :x and p.compte.numCompte like :y")
+	public Positions findPositionByCodeInstrumentAndCompte(@Param("x")String codeInstrument, @Param("y")String codeCompte);
 
 }

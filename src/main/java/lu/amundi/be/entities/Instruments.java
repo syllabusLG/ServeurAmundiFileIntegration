@@ -44,9 +44,9 @@ public class Instruments implements Serializable {
 	private LocalTime cutOffFax;
 	private String codeFundLife;
 	private String idPlateforme;
-	private int idSocieteGestion;
-	private int idDepositaire;
-	private int idAgentTransfert;
+	private String idSocieteGestion;
+	private String idDepositaire;
+	private String idAgentTransfert;
 	
 	public String getCode() {
 		return code;
@@ -162,22 +162,22 @@ public class Instruments implements Serializable {
 	public void setIdPlateforme(String idPlateforme) {
 		this.idPlateforme = idPlateforme;
 	}
-	public int getIdSocieteGestion() {
+	public String getIdSocieteGestion() {
 		return idSocieteGestion;
 	}
-	public void setIdSocieteGestion(int idSocieteGestion) {
+	public void setIdSocieteGestion(String idSocieteGestion) {
 		this.idSocieteGestion = idSocieteGestion;
 	}
-	public int getIdDepositaire() {
+	public String getIdDepositaire() {
 		return idDepositaire;
 	}
-	public void setIdDepositaire(int idDepositaire) {
+	public void setIdDepositaire(String idDepositaire) {
 		this.idDepositaire = idDepositaire;
 	}
-	public int getIdAgentTransfert() {
+	public String getIdAgentTransfert() {
 		return idAgentTransfert;
 	}
-	public void setIdAgentTransfert(int idAgentTransfert) {
+	public void setIdAgentTransfert(String idAgentTransfert) {
 		this.idAgentTransfert = idAgentTransfert;
 	}
 	
@@ -187,8 +187,8 @@ public class Instruments implements Serializable {
 	public Instruments(String code, String nom, String codeSocieteGestion, String statut, String nature,
 			String classification, String codeEmploiRevenu, String periodicite, int precisionPart, int precisionVL,
 			int precisionPlusValue, LocalTime cutOffStp, String idDevise, int niveauRisque, int horizonPlacement,
-			LocalTime cutOff, LocalTime cutOffFax, String codeFundLife, String idPlateforme, int idSocieteGestion,
-			int idDepositaire, int idAgentTransfert) {
+			LocalTime cutOff, LocalTime cutOffFax, String codeFundLife, String idPlateforme, String idSocieteGestion,
+			String idDepositaire, String idAgentTransfert) {
 		super();
 		this.code = code;
 		this.nom = nom;

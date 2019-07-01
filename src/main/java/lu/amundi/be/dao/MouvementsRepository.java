@@ -36,19 +36,19 @@ public interface MouvementsRepository extends JpaRepository<Mouvements, String> 
 	
 	@Query("select mvt from Mouvements mvt where mvt.compte.numCompte like :x and "
 			+ "(mvt.dateCompte between :y and :z)")
-	public Page<Mouvements> getMouvementsByCompteAndDateCompte(@Param("x")long numCompte, 
+	public Page<Mouvements> getMouvementsByCompteAndDateCompte(@Param("x")String numCompte, 
 														@Param("y")LocalDate dateBefore, 
 														@Param("z")LocalDate dateAfter, Pageable pageable);
 	
 	@Query("select mvt from Mouvements mvt where mvt.compte.numCompte like :x and "
 			+ "(mvt.dateValeur between :y and :z)")
-	public Page<Mouvements> getMouvementsByCompteAndDateValeur(@Param("x")long numCompte, 
+	public Page<Mouvements> getMouvementsByCompteAndDateValeur(@Param("x")String numCompte, 
 														@Param("y")LocalDate dateBefore, 
 														@Param("z")LocalDate dateAfter, Pageable pageable);
 	
 	@Query("select mvt from Mouvements mvt where mvt.compte.numCompte like :x and "
 			+ "(mvt.dateOperation between :y and :z)")
-	public Page<Mouvements> getMouvementsByCompteAndDateOperation(@Param("x")long numCompte, 
+	public Page<Mouvements> getMouvementsByCompteAndDateOperation(@Param("x")String numCompte, 
 														@Param("y")LocalDate dateBefore, 
 														@Param("z")LocalDate dateAfter, Pageable pageable);
 }

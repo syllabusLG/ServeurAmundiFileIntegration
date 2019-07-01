@@ -26,7 +26,7 @@ public  class Compte implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	private Long numCompte;
+	private String numCompte;
 	private String type;
 	private String libCompte;
 	private String ouvert;
@@ -52,10 +52,10 @@ public  class Compte implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Long getNumCompte() {
+	public String getNumCompte() {
 		return numCompte;
 	}
-	public void setNumCompte(Long numCompte) {
+	public void setNumCompte(String numCompte) {
 		this.numCompte = numCompte;
 	}
 	public String getLibCompte() {
@@ -127,7 +127,7 @@ public  class Compte implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+	public Compte(String numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
 			String statutAff, String typage, String typeCompte) {
 		super();
 		this.numCompte = numCompte;
@@ -140,7 +140,7 @@ public  class Compte implements Serializable {
 		this.typage = typage;
 		this.typeCompte = typeCompte;
 	}
-	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+	public Compte(String numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
 			String statutAff, String typage, String typeCompte, Individu individu) {
 		super();
 		this.numCompte = numCompte;
@@ -154,7 +154,7 @@ public  class Compte implements Serializable {
 		this.typeCompte = typeCompte;
 		this.individu = individu;
 	}
-	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+	public Compte(String numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
 			String statutAff, String typage, String typeCompte, Individu individu, Collection<Positions> positions) {
 		super();
 		this.numCompte = numCompte;
@@ -169,7 +169,7 @@ public  class Compte implements Serializable {
 		this.individu = individu;
 		this.positions = positions;
 	}
-	public Compte(Long numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
+	public Compte(String numCompte, String type, String libCompte, String ouvert, String lettrage, int idCptPc,
 			String statutAff, String typage, String typeCompte, Individu individu, Collection<Positions> positions,
 			Collection<Mouvements> mouvements) {
 		super();

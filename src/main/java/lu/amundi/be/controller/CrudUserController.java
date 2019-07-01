@@ -46,7 +46,7 @@ public class CrudUserController extends CrudControlller<User, Long>{
 		user.setRoles(Arrays.asList(role));
 		user.setEnable(true);
 		user.setChangePassword("FALSE");
-		user.setPassword(EncodePassword.getPassword("amundi2018"));
+		user.setPassword(EncodePassword.generateCrypting("amundi2018"));
 		super.add(user);
 	}
 	
