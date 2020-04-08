@@ -28,83 +28,9 @@ import lu.amundi.be.utils.RoleEnum;
  *
  */
 @SpringBootApplication
-public class ServeurAmundiFileIntegrationApplication implements CommandLineRunner{
+public class ServeurAmundiFileIntegrationApplication{
 
-	@Autowired
-	private ICrudService<Individu, String> service1;
-	@Autowired
-	private ICrudService<Salarie, String> service2;
-	@Autowired
-	RoleRepository roleRepository;
-	@Autowired
-	UserRepository userRepository;
-
-	
 	public static void main(String[] args) {
 		SpringApplication.run(ServeurAmundiFileIntegrationApplication.class, args);
 	}
-	
-
-	@Override
-	public void run(String... args) throws Exception {
-		Individu individu = new Individu();
-		Individu individu2 = new Individu();
-		individu.setNui("123DF456");
-		individu.setFirstName("Abou");
-		individu.setLastName("Ndiaye");
-		individu2.setNui("12323456");
-		individu2.setFirstName("Aida");
-		individu2.setLastName("Ndiaye");
-		//service1.add(individu);
-		//service1.add(individu2);
-		Salarie salarie = new Salarie();
-		salarie.setIndividu(individu);
-		salarie.setCompany_CD("FD");
-		salarie.setEmployeeId("12");
-		//service2.add(salarie);
-		service1.getAll().forEach(i -> {
-			System.out.println(i.getFirstName());
-		});
-		service2.getAll().forEach(s -> {
-			System.out.println("le salarié: "+ s.getEmployeeId()+" de nom "+s.getIndividu().getFirstName());
-		});
-		
-
-		
-		Role roleUser = new Role(RoleEnum.ROLE_USER);
-		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
-		Role roleIndividu = new Role(RoleEnum.ROLE_INDIVIDUS);
-		Role roleSalarie = new Role(RoleEnum.ROLE_SALARIE);
-		Role roleAdresse = new Role(RoleEnum.ROLE_ADRESSE);
-		Role rolePayment = new Role(RoleEnum.ROLE_PAYMENT);
-		Role roleDashboard = new Role(RoleEnum.ROLE_DASHBOARD);
-		Role roleCompte = new Role(RoleEnum.ROLE_COMPTE);
-		Role roleContact = new Role(RoleEnum.ROLE_CONTACT);
-		Role roleAudit = new Role(RoleEnum.ROLE_AUDIT);
-		roleRepository.save(roleUser);
-		roleRepository.save(roleAdmin);
-		roleRepository.save(roleIndividu);
-		roleRepository.save(roleSalarie);
-		roleRepository.save(roleAdresse);
-		roleRepository.save(rolePayment);
-		roleRepository.save(roleDashboard);
-		roleRepository.save(roleCompte);
-		roleRepository.save(roleContact);
-		roleRepository.save(roleAudit);
-		
-		
-		
-		User user = new User("user", EncodePassword.generateCrypting("amundi2018"), "", "Lionel", "Messi", true, "FALSE");
-		user.setRoles(Arrays.asList(roleUser));
-		userRepository.save(user);
-		
-		User admin = new User("admin", EncodePassword.generateCrypting("amundiAdmin2018"), "", "Cristiano", "Ronaldo", true, "FALSE");
-		admin.setRoles(Arrays.asList(roleUser, roleAdmin, roleIndividu, roleSalarie, 
-				roleAdresse, rolePayment, roleDashboard, roleCompte, roleContact, roleAudit));
-		userRepository.save(admin);
-		
-		
-		
-	}
-	   
 }
